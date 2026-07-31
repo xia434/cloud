@@ -1,0 +1,476 @@
+{
+  "nodes": [
+    {
+      "id": "云数据库 RDS",
+      "label": "Product",
+      "properties": [
+        {
+          "key": "full_name",
+          "value": "Relational Database Service"
+        }
+      ]
+    },
+    {
+      "id": "阿里云飞天架构",
+      "label": "Architecture",
+      "properties": []
+    },
+    {
+      "id": "ECS 实例",
+      "label": "Product",
+      "properties": [
+        {
+          "key": "example_instance_type",
+          "value": "ecs.c7.large"
+        }
+      ]
+    },
+    {
+      "id": "ESSD 云盘",
+      "label": "Storage",
+      "properties": []
+    },
+    {
+      "id": "RDS MySQL",
+      "label": "Engine",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "MySQL"
+        }
+      ]
+    },
+    {
+      "id": "MySQL 5.7",
+      "label": "Version",
+      "properties": []
+    },
+    {
+      "id": "MySQL 8.0",
+      "label": "Version",
+      "properties": []
+    },
+    {
+      "id": "高并发交易系统",
+      "label": "Scenario",
+      "properties": [
+        {
+          "key": "performance_requirement",
+          "value": "high concurrency"
+        }
+      ]
+    },
+    {
+      "id": "互联网社交",
+      "label": "Scenario",
+      "properties": []
+    },
+    {
+      "id": "游戏数据存储",
+      "label": "Scenario",
+      "properties": []
+    },
+    {
+      "id": "RDS PostgreSQL",
+      "label": "Engine",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "PostgreSQL"
+        }
+      ]
+    },
+    {
+      "id": "PostgreSQL 13",
+      "label": "Version",
+      "properties": []
+    },
+    {
+      "id": "PostgreSQL 14",
+      "label": "Version",
+      "properties": []
+    },
+    {
+      "id": "PostgreSQL 15",
+      "label": "Version",
+      "properties": []
+    },
+    {
+      "id": "GIS 地理信息系统",
+      "label": "Scenario",
+      "properties": [
+        {
+          "key": "domain",
+          "value": "geospatial"
+        }
+      ]
+    },
+    {
+      "id": "复杂金融数据处理",
+      "label": "Scenario",
+      "properties": [
+        {
+          "key": "domain",
+          "value": "finance"
+        }
+      ]
+    },
+    {
+      "id": "推荐系统",
+      "label": "Scenario",
+      "properties": [
+        {
+          "key": "domain",
+          "value": "machine_learning"
+        }
+      ]
+    },
+    {
+      "id": "基础版 (Basic)",
+      "label": "DeploymentMode",
+      "properties": [
+        {
+          "key": "availability_sla",
+          "value": "not guaranteed"
+        }
+      ]
+    },
+    {
+      "id": "单节点部署",
+      "label": "Architecture",
+      "properties": []
+    },
+    {
+      "id": "ESSD PL1",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "performance_level",
+          "value": "PL1"
+        }
+      ]
+    },
+    {
+      "id": "个人博客",
+      "label": "UseCase",
+      "properties": []
+    },
+    {
+      "id": "开发测试环境",
+      "label": "UseCase",
+      "properties": []
+    },
+    {
+      "id": "高可用版 (High Availability)",
+      "label": "DeploymentMode",
+      "properties": [
+        {
+          "key": "availability_sla",
+          "value": "99.99%"
+        }
+      ]
+    },
+    {
+      "id": "一主一备双节点架构",
+      "label": "Architecture",
+      "properties": []
+    },
+    {
+      "id": "华北2（北京）可用区 K (cn-beijing-k)",
+      "label": "Region",
+      "properties": [
+        {
+          "key": "region_id",
+          "value": "cn-beijing-k"
+        }
+      ]
+    },
+    {
+      "id": "华北2（北京）可用区 L (cn-beijing-l)",
+      "label": "Region",
+      "properties": [
+        {
+          "key": "region_id",
+          "value": "cn-beijing-l"
+        }
+      ]
+    },
+    {
+      "id": "30 秒故障转移",
+      "label": "FailoverCapability",
+      "properties": [
+        {
+          "key": "max_recovery_time_seconds",
+          "value": "30"
+        }
+      ]
+    },
+    {
+      "id": "只读实例 (Read-Only Instance)",
+      "label": "Feature",
+      "properties": [
+        {
+          "key": "max_count",
+          "value": "10"
+        }
+      ]
+    },
+    {
+      "id": "读写分离地址",
+      "label": "Endpoint",
+      "properties": []
+    },
+    {
+      "id": "rm-bp1xxx.mysql.rds.aliyuncs.com",
+      "label": "DNSName",
+      "properties": []
+    },
+    {
+      "id": "写请求路由到主节点",
+      "label": "RoutingBehavior",
+      "properties": []
+    },
+    {
+      "id": "读请求按权重分发到只读实例",
+      "label": "RoutingBehavior",
+      "properties": []
+    },
+    {
+      "id": "ECS 与 RDS 内网互通",
+      "label": "NetworkRequirement",
+      "properties": []
+    },
+    {
+      "id": "同一地域",
+      "label": "Constraint",
+      "properties": []
+    },
+    {
+      "id": "同一专有网络 VPC",
+      "label": "Constraint",
+      "properties": [
+        {
+          "key": "example_vpc_name",
+          "value": "vpc-prod-beijing"
+        }
+      ]
+    },
+    {
+      "id": "RDS 白名单授权",
+      "label": "SecurityPolicy",
+      "properties": []
+    },
+    {
+      "id": "ECS 出方向安全组放行",
+      "label": "SecurityPolicy",
+      "properties": []
+    },
+    {
+      "id": "10.0.0.15",
+      "label": "IP",
+      "properties": []
+    },
+    {
+      "id": "10.0.0.0/16",
+      "label": "CIDR",
+      "properties": []
+    },
+    {
+      "id": "TCP 3306",
+      "label": "PortProtocol",
+      "properties": [
+        {
+          "key": "service",
+          "value": "MySQL"
+        }
+      ]
+    },
+    {
+      "id": "TCP 5432",
+      "label": "PortProtocol",
+      "properties": [
+        {
+          "key": "service",
+          "value": "PostgreSQL"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "RDS PostgreSQL",
+      "type": "SUPPORTS_VERSION",
+      "target": "PostgreSQL 13"
+    },
+    {
+      "source": "基础版 (Basic)",
+      "type": "RECOMMENDED_FOR",
+      "target": "开发测试环境"
+    },
+    {
+      "source": "基础版 (Basic)",
+      "type": "USES_STORAGE",
+      "target": "ESSD PL1"
+    },
+    {
+      "source": "高可用版 (High Availability)",
+      "type": "DEPLOYS_STANDBY_IN",
+      "target": "华北2（北京）可用区 L (cn-beijing-l)"
+    },
+    {
+      "source": "读写分离地址",
+      "type": "IS_INSTANCE_OF",
+      "target": "rm-bp1xxx.mysql.rds.aliyuncs.com"
+    },
+    {
+      "source": "只读实例 (Read-Only Instance)",
+      "type": "HAS_LIMIT",
+      "target": "最多 10 个"
+    },
+    {
+      "source": "云数据库 RDS",
+      "type": "DEPENDS_ON",
+      "target": "阿里云飞天架构"
+    },
+    {
+      "source": "高可用版 (High Availability)",
+      "type": "DEPLOYS_PRIMARY_IN",
+      "target": "华北2（北京）可用区 K (cn-beijing-k)"
+    },
+    {
+      "source": "云数据库 RDS",
+      "type": "DEPENDS_ON",
+      "target": "ECS 实例"
+    },
+    {
+      "source": "高可用版 (High Availability)",
+      "type": "HAS_ARCHITECTURE",
+      "target": "一主一备双节点架构"
+    },
+    {
+      "source": "RDS 白名单授权",
+      "type": "INCLUDES_CIDR",
+      "target": "10.0.0.0/16"
+    },
+    {
+      "source": "RDS PostgreSQL",
+      "type": "APPLIES_TO_SCENARIO",
+      "target": "复杂金融数据处理"
+    },
+    {
+      "source": "ECS 与 RDS 内网互通",
+      "type": "REQUIRES_CONDITION",
+      "target": "同一专有网络 VPC"
+    },
+    {
+      "source": "RDS MySQL",
+      "type": "SUPPORTS_VERSION",
+      "target": "MySQL 8.0"
+    },
+    {
+      "source": "RDS MySQL",
+      "type": "APPLIES_TO_SCENARIO",
+      "target": "互联网社交"
+    },
+    {
+      "source": "RDS PostgreSQL",
+      "type": "SUPPORTS_VERSION",
+      "target": "PostgreSQL 15"
+    },
+    {
+      "source": "高可用版 (High Availability)",
+      "type": "SUPPORTS_FAILOVER_WITHIN",
+      "target": "30 秒故障转移"
+    },
+    {
+      "source": "读写分离地址",
+      "type": "ROUTING_RULE",
+      "target": "写请求路由到主节点"
+    },
+    {
+      "source": "RDS 白名单授权",
+      "type": "INCLUDES_IP",
+      "target": "10.0.0.15"
+    },
+    {
+      "source": "RDS MySQL",
+      "type": "APPLIES_TO_SCENARIO",
+      "target": "游戏数据存储"
+    },
+    {
+      "source": "RDS PostgreSQL",
+      "type": "APPLIES_TO_SCENARIO",
+      "target": "推荐系统"
+    },
+    {
+      "source": "ECS 出方向安全组放行",
+      "type": "ALLOWS_PORT_PROTOCOL",
+      "target": "TCP 5432"
+    },
+    {
+      "source": "RDS PostgreSQL",
+      "type": "SUPPORTS_VERSION",
+      "target": "PostgreSQL 14"
+    },
+    {
+      "source": "基础版 (Basic)",
+      "type": "RECOMMENDED_FOR",
+      "target": "个人博客"
+    },
+    {
+      "source": "只读实例 (Read-Only Instance)",
+      "type": "REQUIRES_DEPLOYMENT_MODE",
+      "target": "高可用版 (High Availability)"
+    },
+    {
+      "source": "RDS MySQL",
+      "type": "APPLIES_TO_SCENARIO",
+      "target": "高并发交易系统"
+    },
+    {
+      "source": "基础版 (Basic)",
+      "type": "HAS_ARCHITECTURE",
+      "target": "单节点部署"
+    },
+    {
+      "source": "ECS 与 RDS 内网互通",
+      "type": "REQUIRES_CONDITION",
+      "target": "ECS 出方向安全组放行"
+    },
+    {
+      "source": "ECS 与 RDS 内网互通",
+      "type": "REQUIRES_CONDITION",
+      "target": "RDS 白名单授权"
+    },
+    {
+      "source": "RDS PostgreSQL",
+      "type": "APPLIES_TO_SCENARIO",
+      "target": "GIS 地理信息系统"
+    },
+    {
+      "source": "RDS MySQL",
+      "type": "SUPPORTS_VERSION",
+      "target": "MySQL 5.7"
+    },
+    {
+      "source": "ECS 与 RDS 内网互通",
+      "type": "REQUIRES_CONDITION",
+      "target": "同一地域"
+    },
+    {
+      "source": "ECS 出方向安全组放行",
+      "type": "ALLOWS_PORT_PROTOCOL",
+      "target": "TCP 3306"
+    },
+    {
+      "source": "云数据库 RDS",
+      "type": "DEPENDS_ON",
+      "target": "ESSD 云盘"
+    },
+    {
+      "source": "读写分离地址",
+      "type": "ROUTING_RULE",
+      "target": "读请求按权重分发到只读实例"
+    }
+  ]
+}

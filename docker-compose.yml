@@ -1,0 +1,227 @@
+# Cloud Agent 一键部署编排（P1-6 改造）
+#
+# 启动全部依赖服务：
+#   docker compose up -d
+#
+# 仅启动指定服务：
+#   docker compose up -d redis mysql neo4j
+#
+# 查看日志：
+#   docker compose logs -f milvus
+#
+# 停止并删除容器（保留数据）：
+#   docker compose down
+#
+# 停止并删除容器 + 数据卷（清空数据）：
+#   docker compose down -v
+#
+# 端口说明：
+#   - Redis       6379
+#   - MySQL       3306
+#   - Neo4j       7474 (HTTP) / 7687 (Bolt)
+#   - Milvus      19530 (gRPC) / 9091 (Metrics)
+#   - Langfuse    3000 (Web UI)
+#
+# 启动后请把 .env 里的占位符替换为 localhost + 默认账号密码。
+
+services:
+  # ---------------------------------------------------------------------------
+  # Redis - 短期记忆 + 语义缓存
+  # ---------------------------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: cloud_agent_redis
+    restart: unless-stopped
+    command: redis-server --requirepass redis123456 --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - cloud_agent_net
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "redis123456", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ---------------------------------------------------------------------------
+  # MySQL - 业务数据（订单/实例/监控指标）
+  # ---------------------------------------------------------------------------
+  mysql:
+    image: mysql:8.0
+    container_name: cloud_agent_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: cloud_platform
+      TZ: Asia/Shanghai
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # 首次启动自动导入建表 + mock 数据脚本（如有）
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ./sql/mock_data.sql:/docker-entrypoint-initdb.d/02_mock_data.sql:ro
+    networks:
+      - cloud_agent_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot123456"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # ---------------------------------------------------------------------------
+  # Neo4j - 知识图谱（产品/规格/场景关系）
+  # ---------------------------------------------------------------------------
+  neo4j:
+    image: neo4j:5.20
+    container_name: cloud_agent_neo4j
+    restart: unless-stopped
+    environment:
+      NEO4J_AUTH: neo4j/neo4j123456
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+    ports:
+      - "7474:7474"   # HTTP Browser
+      - "7687:7687"   # Bolt
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    networks:
+      - cloud_agent_net
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://localhost:7474 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+
+  # ---------------------------------------------------------------------------
+  # Milvus 依赖：etcd + MinIO（Milvus 自身需要这两个）
+  # ---------------------------------------------------------------------------
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.5
+    container_name: cloud_agent_etcd
+    restart: unless-stopped
+    environment:
+      ETCD_AUTO_COMPACTION_MODE: revision
+      ETCD_AUTO_COMPACTION_RETENTION: "1000"
+      ETCD_QUOTA_BACKEND_BYTES: "4294967296"
+      ETCD_SNAPSHOT_COUNT: "50000"
+    command: etcd -advertise-client-urls=http://etcd:2379 -listen-client-urls=http://0.0.0.0:2379 --data-dir /etcd
+    volumes:
+      - etcd_data:/etcd
+    networks:
+      - cloud_agent_net
+    healthcheck:
+      test: ["CMD", "etcdctl", "endpoint", "health"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  minio:
+    image: minio/minio:RELEASE.2024-09-13T20-26-02Z
+    container_name: cloud_agent_minio
+    restart: unless-stopped
+    environment:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    command: minio server /minio_data --console-address ":9001"
+    ports:
+      - "9001:9001"   # MinIO Console
+    volumes:
+      - minio_data:/minio_data
+    networks:
+      - cloud_agent_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  # ---------------------------------------------------------------------------
+  # Milvus - 向量检索（长期记忆 + 语义缓存）
+  # ---------------------------------------------------------------------------
+  milvus:
+    image: milvusdb/milvus:v2.4.10
+    container_name: cloud_agent_milvus
+    restart: unless-stopped
+    command: ["milvus", "run", "standalone"]
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: minio:9000
+    ports:
+      - "19530:19530"   # gRPC
+      - "9091:9091"     # Metrics
+    depends_on:
+      etcd:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    volumes:
+      - milvus_data:/var/lib/milvus
+    networks:
+      - cloud_agent_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  # ---------------------------------------------------------------------------
+  # Langfuse - LLM 可观测性（P0-2 引入）
+  # v2 镜像：单体部署，仅依赖 Postgres；与 observability.py 的 v2 SDK 配套
+  # （v3 镜像需 ClickHouse + Redis，自托管过重；本项目用 v2 已足够）
+  # ---------------------------------------------------------------------------
+  langfuse:
+    image: langfuse/langfuse:2
+    container_name: cloud_agent_langfuse
+    restart: unless-stopped
+    depends_on:
+      langfuse_db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://langfuse:langfuse@langfuse_db:5432/langfuse
+      NEXTAUTH_SECRET: langfuse_secret_change_me_in_prod
+      SALT: langfuse_salt_change_me_in_prod
+      NEXTAUTH_URL: http://localhost:3000
+      TELEMETRY_ENABLED: "false"
+    ports:
+      - "3000:3000"
+    networks:
+      - cloud_agent_net
+
+  langfuse_db:
+    image: postgres:15-alpine
+    container_name: cloud_agent_langfuse_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: langfuse
+      POSTGRES_PASSWORD: langfuse
+      POSTGRES_DB: langfuse
+    volumes:
+      - langfuse_db_data:/var/lib/postgresql/data
+    networks:
+      - cloud_agent_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U langfuse"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  cloud_agent_net:
+    driver: bridge
+
+volumes:
+  redis_data:
+  mysql_data:
+  neo4j_data:
+  neo4j_logs:
+  etcd_data:
+  minio_data:
+  milvus_data:
+  langfuse_db_data:

@@ -1,0 +1,55 @@
+# LangChain v1 Ecosystem
+langchain>=1.2.0
+langchain-core>=1.2.0
+langgraph>=1.1.0
+langgraph-prebuilt>=1.0.0
+langchain-neo4j>=0.2.0
+langchain-milvus>=0.3.0
+
+# MCP Integration
+mcp>=1.0.0
+langchain-mcp-adapters>=0.1.0
+
+# Model Provider
+langchain-community>=0.3.0
+dashscope>=1.20.0
+
+# Utilities
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+httpx>=0.27.0
+
+# Async
+asyncio-mqtt>=0.16.0
+aiofiles>=23.0.0
+
+# Database
+neo4j>=5.20.0
+redis>=5.0.0
+pymilvus>=2.4.0
+
+# Observability (Langfuse v4 SDK - 与自托管 langfuse:2 server 配套，ingestion API 兼容)
+langfuse>=4.0.0
+
+# Offline RAG evaluation (0.3.x is incompatible with LangChain Community 0.4)
+ragas>=0.4,<0.5
+datasets>=4.0.0
+
+# Resilience (tenacity - P2-10 重试用)
+tenacity>=8.2.0
+
+# Web Framework (app/ 层)
+fastapi>=0.110.0
+uvicorn>=0.27.0
+
+# MySQL
+pymysql>=1.1.0
+aiomysql>=0.2.0
+
+# Auth (P3 安全认证体系 - JWT + bcrypt)
+PyJWT>=2.8.0
+passlib[bcrypt]>=1.7.4
+
+# Logging
+structlog>=24.0.0

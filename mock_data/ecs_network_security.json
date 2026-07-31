@@ -1,0 +1,512 @@
+{
+  "nodes": [
+    {
+      "id": "vpc-prod-beijing",
+      "label": "VPC",
+      "properties": [
+        {
+          "key": "name",
+          "value": "vpc-prod-beijing"
+        },
+        {
+          "key": "cidr_block",
+          "value": "10.0.0.0/8"
+        },
+        {
+          "key": "region",
+          "value": "cn-beijing"
+        }
+      ]
+    },
+    {
+      "id": "vpc-dev-beijing",
+      "label": "VPC",
+      "properties": [
+        {
+          "key": "name",
+          "value": "vpc-dev-beijing"
+        },
+        {
+          "key": "region",
+          "value": "cn-beijing"
+        }
+      ]
+    },
+    {
+      "id": "vsw-beijing-k",
+      "label": "VSwitch",
+      "properties": [
+        {
+          "key": "name",
+          "value": "vsw-beijing-k"
+        },
+        {
+          "key": "az_id",
+          "value": "cn-beijing-k"
+        }
+      ]
+    },
+    {
+      "id": "vsw-beijing-g",
+      "label": "VSwitch",
+      "properties": [
+        {
+          "key": "name",
+          "value": "vsw-beijing-g"
+        },
+        {
+          "key": "az_id",
+          "value": "cn-beijing-g"
+        }
+      ]
+    },
+    {
+      "id": "cn-beijing-k",
+      "label": "Region",
+      "properties": [
+        {
+          "key": "name",
+          "value": "华北2（北京）可用区 K"
+        }
+      ]
+    },
+    {
+      "id": "cn-beijing-g",
+      "label": "Region",
+      "properties": [
+        {
+          "key": "name",
+          "value": "华北2（北京）可用区 G"
+        }
+      ]
+    },
+    {
+      "id": "RDS",
+      "label": "Product",
+      "properties": [
+        {
+          "key": "category",
+          "value": "Database"
+        }
+      ]
+    },
+    {
+      "id": "ecs.g8a.4xlarge",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "family",
+          "value": "g8a"
+        },
+        {
+          "key": "vcpus",
+          "value": "16"
+        },
+        {
+          "key": "memory_gb",
+          "value": "64"
+        }
+      ]
+    },
+    {
+      "id": "gn7i",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "family",
+          "value": "gn7i"
+        },
+        {
+          "key": "gpu_type",
+          "value": "NVIDIA T4"
+        }
+      ]
+    },
+    {
+      "id": "ecs.c7.large",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "family",
+          "value": "c7"
+        },
+        {
+          "key": "vcpus",
+          "value": "2"
+        },
+        {
+          "key": "memory_gb",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "id": "ecs.g8a.xlarge",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "family",
+          "value": "g8a"
+        },
+        {
+          "key": "vcpus",
+          "value": "4"
+        },
+        {
+          "key": "memory_gb",
+          "value": "16"
+        }
+      ]
+    },
+    {
+      "id": "EIP",
+      "label": "Product",
+      "properties": [
+        {
+          "key": "category",
+          "value": "Networking"
+        },
+        {
+          "key": "scope",
+          "value": "Regional"
+        }
+      ]
+    },
+    {
+      "id": "Shared Bandwidth",
+      "label": "Product",
+      "properties": [
+        {
+          "key": "category",
+          "value": "Networking"
+        },
+        {
+          "key": "cost_saving_ratio",
+          "value": "30%-40%"
+        }
+      ]
+    },
+    {
+      "id": "CEN",
+      "label": "Product",
+      "properties": [
+        {
+          "key": "category",
+          "value": "Networking"
+        },
+        {
+          "key": "purpose",
+          "value": "Cross-VPC connectivity"
+        }
+      ]
+    },
+    {
+      "id": "Primary ENI",
+      "label": "Resource",
+      "properties": [
+        {
+          "key": "type",
+          "value": "Primary Elastic Network Interface"
+        }
+      ]
+    },
+    {
+      "id": "Secondary ENI",
+      "label": "Resource",
+      "properties": [
+        {
+          "key": "type",
+          "value": "Secondary Elastic Network Interface"
+        }
+      ]
+    },
+    {
+      "id": "ENI",
+      "label": "Resource",
+      "properties": [
+        {
+          "key": "category",
+          "value": "Networking"
+        }
+      ]
+    },
+    {
+      "id": "Security Group",
+      "label": "Resource",
+      "properties": [
+        {
+          "key": "category",
+          "value": "Security"
+        },
+        {
+          "key": "granularity",
+          "value": "Per ENI"
+        },
+        {
+          "key": "max_groups_per_eni",
+          "value": "logically 5"
+        }
+      ]
+    },
+    {
+      "id": "sg-web-prod",
+      "label": "SecurityGroup",
+      "properties": [
+        {
+          "key": "name",
+          "value": "sg-web-prod"
+        },
+        {
+          "key": "purpose",
+          "value": "Web server frontend"
+        }
+      ]
+    },
+    {
+      "id": "sg-rds-internal",
+      "label": "SecurityGroup",
+      "properties": [
+        {
+          "key": "name",
+          "value": "sg-rds-internal"
+        },
+        {
+          "key": "purpose",
+          "value": "Internal database access only"
+        }
+      ]
+    },
+    {
+      "id": "TCP 80",
+      "label": "Port",
+      "properties": [
+        {
+          "key": "protocol",
+          "value": "TCP"
+        },
+        {
+          "key": "port_number",
+          "value": "80"
+        }
+      ]
+    },
+    {
+      "id": "TCP 443",
+      "label": "Port",
+      "properties": [
+        {
+          "key": "protocol",
+          "value": "TCP"
+        },
+        {
+          "key": "port_number",
+          "value": "443"
+        }
+      ]
+    },
+    {
+      "id": "TCP 3306",
+      "label": "Port",
+      "properties": [
+        {
+          "key": "protocol",
+          "value": "TCP"
+        },
+        {
+          "key": "port_number",
+          "value": "3306"
+        }
+      ]
+    },
+    {
+      "id": "203.0.113.1/32",
+      "label": "IPRange",
+      "properties": [
+        {
+          "key": "cidr",
+          "value": "203.0.113.1/32"
+        },
+        {
+          "key": "purpose",
+          "value": "Bastion host"
+        }
+      ]
+    },
+    {
+      "id": "0.0.0.0/0",
+      "label": "IPRange",
+      "properties": [
+        {
+          "key": "cidr",
+          "value": "0.0.0.0/0"
+        },
+        {
+          "key": "purpose",
+          "value": "Any IPv4 address"
+        }
+      ]
+    },
+    {
+      "id": "Pay-By-Traffic",
+      "label": "BillingRule",
+      "properties": [
+        {
+          "key": "mode",
+          "value": "Pay-By-Traffic"
+        }
+      ]
+    },
+    {
+      "id": "Pay-By-Fixed-Bandwidth",
+      "label": "BillingRule",
+      "properties": [
+        {
+          "key": "mode",
+          "value": "Pay-By-Fixed-Bandwidth"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "vpc-prod-beijing",
+      "type": "ISOLATED_FROM",
+      "target": "vpc-dev-beijing"
+    },
+    {
+      "source": "sg-web-prod",
+      "type": "ALLOWS_INBOUND",
+      "target": "TCP 80"
+    },
+    {
+      "source": "vsw-beijing-k",
+      "type": "HOSTS",
+      "target": "RDS"
+    },
+    {
+      "source": "ecs.g8a.xlarge",
+      "type": "REQUIRES_FOR_SHARED_BANDWIDTH",
+      "target": "Pay-By-Traffic"
+    },
+    {
+      "source": "ENI",
+      "type": "ATTACHED_TO",
+      "target": "ecs.g8a.4xlarge"
+    },
+    {
+      "source": "vsw-beijing-g",
+      "type": "RESTRICTS",
+      "target": "gn7i"
+    },
+    {
+      "source": "vsw-beijing-g",
+      "type": "DEPLOYED_IN",
+      "target": "cn-beijing-g"
+    },
+    {
+      "source": "vsw-beijing-k",
+      "type": "INTERCONNECTED_IN_VPC",
+      "target": "vsw-beijing-g"
+    },
+    {
+      "source": "Security Group",
+      "type": "INSTANCE_OF",
+      "target": "sg-rds-internal"
+    },
+    {
+      "source": "vpc-prod-beijing",
+      "type": "CONTAINS",
+      "target": "vsw-beijing-g"
+    },
+    {
+      "source": "EIP",
+      "type": "BINDABLE_TO",
+      "target": "Secondary ENI"
+    },
+    {
+      "source": "ENI",
+      "type": "BOUND_TO",
+      "target": "Security Group"
+    },
+    {
+      "source": "vpc-prod-beijing",
+      "type": "CONTAINS",
+      "target": "vsw-beijing-k"
+    },
+    {
+      "source": "sg-rds-internal",
+      "type": "DENIES_PUBLIC_ACCESS",
+      "target": "0.0.0.0/0"
+    },
+    {
+      "source": "ecs.g8a.xlarge",
+      "type": "INCOMPATIBLE_WITH_SHARED_BANDWIDTH",
+      "target": "Pay-By-Fixed-Bandwidth"
+    },
+    {
+      "source": "sg-web-prod",
+      "type": "ALLOWS_INBOUND",
+      "target": "TCP 443"
+    },
+    {
+      "source": "vpc-prod-beijing",
+      "type": "REQUIRES_FOR_CROSS_VPC_CONNECTIVITY",
+      "target": "CEN"
+    },
+    {
+      "source": "EIP",
+      "type": "SCOPED_TO_REGION",
+      "target": "cn-beijing"
+    },
+    {
+      "source": "vsw-beijing-k",
+      "type": "HOSTS",
+      "target": "ecs.g8a.4xlarge"
+    },
+    {
+      "source": "Security Group",
+      "type": "INSTANCE_OF",
+      "target": "sg-web-prod"
+    },
+    {
+      "source": "EIP",
+      "type": "BINDABLE_TO",
+      "target": "ecs.c7.large"
+    },
+    {
+      "source": "sg-rds-internal",
+      "type": "ALLOWS_INBOUND_FROM_SECURITY_GROUP",
+      "target": "sg-web-prod"
+    },
+    {
+      "source": "Shared Bandwidth",
+      "type": "OPTIMIZES_BANDWIDTH_FOR",
+      "target": "ecs.g8a.xlarge"
+    },
+    {
+      "source": "EIP",
+      "type": "BINDABLE_TO",
+      "target": "Primary ENI"
+    },
+    {
+      "source": "sg-rds-internal",
+      "type": "ALLOWS_INBOUND_PORT",
+      "target": "TCP 3306"
+    },
+    {
+      "source": "EIP",
+      "type": "CAN_BE_ADDED_TO",
+      "target": "Shared Bandwidth"
+    },
+    {
+      "source": "vsw-beijing-k",
+      "type": "DEPLOYED_IN",
+      "target": "cn-beijing-k"
+    },
+    {
+      "source": "sg-web-prod",
+      "type": "ALLOWS_SSH_FROM",
+      "target": "203.0.113.1/32"
+    }
+  ]
+}

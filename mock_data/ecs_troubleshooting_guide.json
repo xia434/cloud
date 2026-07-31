@@ -1,0 +1,467 @@
+{
+  "nodes": [
+    {
+      "id": "OperationDenied.StorageNotSupported",
+      "label": "ErrorCode",
+      "properties": [
+        {
+          "key": "description",
+          "value": "为实例挂载不兼容的块存储（云盘）"
+        }
+      ]
+    },
+    {
+      "id": "InvalidInstanceType.ZoneMismatch",
+      "label": "ErrorCode",
+      "properties": [
+        {
+          "key": "description",
+          "value": "创建实例时指定的可用区与实例规格的物理部署不匹配"
+        }
+      ]
+    },
+    {
+      "id": "InvalidNetworkInterface.ExceedQuota",
+      "label": "ErrorCode",
+      "properties": [
+        {
+          "key": "description",
+          "value": "尝试为 ECS 实例绑定过多的弹性网卡 (ENI)"
+        }
+      ]
+    },
+    {
+      "id": "ecs.g8a.xlarge",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "vCPU",
+          "value": "{\"value\": 4, \"unit\": \"core\"}"
+        },
+        {
+          "key": "memory",
+          "value": "{\"value\": 16, \"unit\": \"GiB\"}"
+        },
+        {
+          "key": "family",
+          "value": "g8a"
+        },
+        {
+          "key": "vcpu",
+          "value": "4"
+        },
+        {
+          "key": "size",
+          "value": "xlarge"
+        }
+      ]
+    },
+    {
+      "id": "ecs.c7.large",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "vCPU",
+          "value": "{\"value\": 2, \"unit\": \"core\"}"
+        },
+        {
+          "key": "memory",
+          "value": "{\"value\": 4, \"unit\": \"GiB\"}"
+        },
+        {
+          "key": "family",
+          "value": "c7"
+        },
+        {
+          "key": "vcpu",
+          "value": "2"
+        },
+        {
+          "key": "size",
+          "value": "large"
+        }
+      ]
+    },
+    {
+      "id": "ecs.gn7i-c8g1.2xlarge",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "vCPU",
+          "value": "{\"value\": 8, \"unit\": \"core\"}"
+        },
+        {
+          "key": "memory",
+          "value": "{\"value\": 32, \"unit\": \"GiB\"}"
+        },
+        {
+          "key": "gpu",
+          "value": "NVIDIA A10"
+        },
+        {
+          "key": "family",
+          "value": "gn7i"
+        }
+      ]
+    },
+    {
+      "id": "ecs.c7.8xlarge",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "vCPU",
+          "value": "{\"value\": 32, \"unit\": \"core\"}"
+        },
+        {
+          "key": "memory",
+          "value": "{\"value\": 64, \"unit\": \"GiB\"}"
+        },
+        {
+          "key": "family",
+          "value": "c7"
+        },
+        {
+          "key": "vcpu",
+          "value": "32"
+        },
+        {
+          "key": "size",
+          "value": "8xlarge"
+        }
+      ]
+    },
+    {
+      "id": "本地 NVMe SSD",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "type",
+          "value": "local"
+        },
+        {
+          "key": "interface",
+          "value": "NVMe"
+        }
+      ]
+    },
+    {
+      "id": "ESSD PL0",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "type",
+          "value": "cloud"
+        },
+        {
+          "key": "performance_level",
+          "value": "PL0"
+        }
+      ]
+    },
+    {
+      "id": "ESSD PL1",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "type",
+          "value": "cloud"
+        },
+        {
+          "key": "performance_level",
+          "value": "PL1"
+        }
+      ]
+    },
+    {
+      "id": "ESSD PL2",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "type",
+          "value": "cloud"
+        },
+        {
+          "key": "performance_level",
+          "value": "PL2"
+        }
+      ]
+    },
+    {
+      "id": "华北2（北京）可用区 G",
+      "label": "Region",
+      "properties": [
+        {
+          "key": "region_id",
+          "value": "cn-beijing-g"
+        },
+        {
+          "key": "region_name",
+          "value": "华北2（北京）可用区 G"
+        }
+      ]
+    },
+    {
+      "id": "华北2（北京）可用区 K",
+      "label": "Region",
+      "properties": [
+        {
+          "key": "region_id",
+          "value": "cn-beijing-k"
+        },
+        {
+          "key": "region_name",
+          "value": "华北2（北京）可用区 K"
+        }
+      ]
+    },
+    {
+      "id": "华北2（北京）可用区 L",
+      "label": "Region",
+      "properties": [
+        {
+          "key": "region_id",
+          "value": "cn-beijing-l"
+        },
+        {
+          "key": "region_name",
+          "value": "华北2（北京）可用区 L"
+        }
+      ]
+    },
+    {
+      "id": "Spot Instance",
+      "label": "BillingRule",
+      "properties": [
+        {
+          "key": "name",
+          "value": "抢占式实例"
+        }
+      ]
+    },
+    {
+      "id": "Windows Server 2022 数据中心版",
+      "label": "OperatingSystem",
+      "properties": [
+        {
+          "key": "version",
+          "value": "2022"
+        },
+        {
+          "key": "edition",
+          "value": "数据中心版"
+        }
+      ]
+    },
+    {
+      "id": "Alibaba Cloud Linux 3",
+      "label": "OperatingSystem",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "Alibaba Cloud"
+        },
+        {
+          "key": "version",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "50 万 PPS",
+      "label": "NetworkPerformance",
+      "properties": [
+        {
+          "key": "pps",
+          "value": "500000"
+        }
+      ]
+    },
+    {
+      "id": "200 万 PPS",
+      "label": "NetworkPerformance",
+      "properties": [
+        {
+          "key": "pps",
+          "value": "2000000"
+        }
+      ]
+    },
+    {
+      "id": "1200 万 PPS",
+      "label": "NetworkPerformance",
+      "properties": [
+        {
+          "key": "pps",
+          "value": "12000000"
+        }
+      ]
+    },
+    {
+      "id": "5 Gbps",
+      "label": "Bandwidth",
+      "properties": [
+        {
+          "key": "bandwidth_gbps",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "id": "40 Gbps",
+      "label": "Bandwidth",
+      "properties": [
+        {
+          "key": "bandwidth_gbps",
+          "value": "40"
+        }
+      ]
+    },
+    {
+      "id": "4 vCPU 及以上",
+      "label": "ComputeRequirement",
+      "properties": [
+        {
+          "key": "min_vcpu",
+          "value": "4"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "InvalidNetworkInterface.ExceedQuota",
+      "type": "TRIGGERS_ON",
+      "target": "ecs.c7.8xlarge"
+    },
+    {
+      "source": "ecs.g8a.xlarge",
+      "type": "REQUIRES",
+      "target": "本地 NVMe SSD"
+    },
+    {
+      "source": "ecs.c7.8xlarge",
+      "type": "HAS_FEATURE",
+      "target": "1200 万 PPS"
+    },
+    {
+      "source": "ecs.gn7i-c8g1.2xlarge",
+      "type": "RESTRICTS",
+      "target": "ESSD PL0"
+    },
+    {
+      "source": "OperationDenied.StorageNotSupported",
+      "type": "RESTRICTS",
+      "target": "ecs.c7.large"
+    },
+    {
+      "source": "Windows Server 2022 数据中心版",
+      "type": "SUPPORTS",
+      "target": "ecs.g8a.xlarge"
+    },
+    {
+      "source": "Windows Server 2022 数据中心版",
+      "type": "RESTRICTS",
+      "target": "ecs.c7.large"
+    },
+    {
+      "source": "ecs.c7.8xlarge",
+      "type": "HAS_ENI_QUOTA",
+      "target": "15"
+    },
+    {
+      "source": "ecs.c7.large",
+      "type": "HAS_FEATURE",
+      "target": "50 万 PPS"
+    },
+    {
+      "source": "OperationDenied.StorageNotSupported",
+      "type": "RESTRICTS",
+      "target": "ecs.gn7i-c8g1.2xlarge"
+    },
+    {
+      "source": "华北2（北京）可用区 G",
+      "type": "DOES_NOT_DEPLOY",
+      "target": "ecs.gn7i"
+    },
+    {
+      "source": "华北2（北京）可用区 K",
+      "type": "HAS_STOCK_LIMITATION",
+      "target": "Spot Instance"
+    },
+    {
+      "source": "InvalidInstanceType.ZoneMismatch",
+      "type": "TRIGGERS_IN",
+      "target": "华北2（北京）可用区 G"
+    },
+    {
+      "source": "ecs.c7.large",
+      "type": "HAS_ENI_QUOTA",
+      "target": "2"
+    },
+    {
+      "source": "ecs.c7.large",
+      "type": "HAS_FEATURE",
+      "target": "5 Gbps"
+    },
+    {
+      "source": "华北2（北京）可用区 K",
+      "type": "DEPLOYS",
+      "target": "ecs.gn7i"
+    },
+    {
+      "source": "ecs.c7.large",
+      "type": "REQUIRES",
+      "target": "本地 NVMe SSD"
+    },
+    {
+      "source": "ecs.g8a.xlarge",
+      "type": "SUPPORTS",
+      "target": "Windows Server 2022 数据中心版"
+    },
+    {
+      "source": "InvalidNetworkInterface.ExceedQuota",
+      "type": "TRIGGERS_ON",
+      "target": "ecs.g8a.xlarge"
+    },
+    {
+      "source": "InvalidInstanceType.ZoneMismatch",
+      "type": "TRIGGERS_IN",
+      "target": "华北2（北京）可用区 K"
+    },
+    {
+      "source": "ecs.g8a.xlarge",
+      "type": "HAS_FEATURE",
+      "target": "200 万 PPS"
+    },
+    {
+      "source": "ecs.c7.8xlarge",
+      "type": "HAS_FEATURE",
+      "target": "40 Gbps"
+    },
+    {
+      "source": "OperationDenied.StorageNotSupported",
+      "type": "RESTRICTS",
+      "target": "ecs.g8a.xlarge"
+    },
+    {
+      "source": "Windows Server 2022 数据中心版",
+      "type": "REQUIRES",
+      "target": "4 vCPU 及以上"
+    },
+    {
+      "source": "ecs.g8a.xlarge",
+      "type": "HAS_ENI_QUOTA",
+      "target": "3"
+    },
+    {
+      "source": "InvalidNetworkInterface.ExceedQuota",
+      "type": "TRIGGERS_ON",
+      "target": "ecs.c7.large"
+    },
+    {
+      "source": "ecs.gn7i-c8g1.2xlarge",
+      "type": "REQUIRES",
+      "target": "ESSD PL2"
+    }
+  ]
+}

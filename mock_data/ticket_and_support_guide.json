@@ -1,0 +1,491 @@
+{
+  "nodes": [
+    {
+      "id": "智能客服",
+      "label": "Product",
+      "properties": [
+        {
+          "key": "availability",
+          "value": "7x24小时实时响应"
+        }
+      ]
+    },
+    {
+      "id": "L1",
+      "label": "SupportLevel",
+      "properties": []
+    },
+    {
+      "id": "L2",
+      "label": "SupportLevel",
+      "properties": []
+    },
+    {
+      "id": "语义缓存直返",
+      "label": "ImplementationMethod",
+      "properties": []
+    },
+    {
+      "id": "大模型检索增强",
+      "label": "ImplementationMethod",
+      "properties": []
+    },
+    {
+      "id": "高频标准化问题",
+      "label": "UseCase",
+      "properties": [
+        {
+          "key": "examples",
+          "value": "如何查询实例详情？包年包月退款手续费是多少？ecs.g8a.xlarge 的带宽上限是多少？"
+        }
+      ]
+    },
+    {
+      "id": "多条件约束的复杂问题",
+      "label": "UseCase",
+      "properties": [
+        {
+          "key": "examples",
+          "value": "北京可用区 K 支持哪些带 GPU 的抢占式实例且能装 Windows？我的 ECS 连不上 RDS，需要排查哪些网络和安全组配置？"
+        }
+      ]
+    },
+    {
+      "id": "人工工单支持",
+      "label": "Product",
+      "properties": []
+    },
+    {
+      "id": "基础服务",
+      "label": "SupportTier",
+      "properties": []
+    },
+    {
+      "id": "企业级支持",
+      "label": "SupportTier",
+      "properties": []
+    },
+    {
+      "id": "工单提交建议",
+      "label": "Guideline",
+      "properties": []
+    },
+    {
+      "id": "实例ID",
+      "label": "ResourceIdentifier",
+      "properties": [
+        {
+          "key": "example",
+          "value": "i-bp1xxx"
+        }
+      ]
+    },
+    {
+      "id": "地域",
+      "label": "Region",
+      "properties": []
+    },
+    {
+      "id": "报错信息截图",
+      "label": "DiagnosticArtifact",
+      "properties": []
+    },
+    {
+      "id": "错误码",
+      "label": "ErrorCode",
+      "properties": [
+        {
+          "key": "example",
+          "value": "InvalidInstanceType.NotFound"
+        }
+      ]
+    },
+    {
+      "id": "资源变配与扩容失败",
+      "label": "TicketCategory",
+      "properties": []
+    },
+    {
+      "id": "计算与网络 > 实例规格变配",
+      "label": "TicketSubcategory",
+      "properties": []
+    },
+    {
+      "id": "ecs.c7.large",
+      "label": "InstanceType",
+      "properties": []
+    },
+    {
+      "id": "ecs.g8a.xlarge",
+      "label": "InstanceType",
+      "properties": []
+    },
+    {
+      "id": "库存不足",
+      "label": "ErrorReason",
+      "properties": []
+    },
+    {
+      "id": "不支持的变配路径",
+      "label": "ErrorReason",
+      "properties": []
+    },
+    {
+      "id": "云盘",
+      "label": "Storage",
+      "properties": []
+    },
+    {
+      "id": "OperationDenied.StorageNotSupported",
+      "label": "ErrorCode",
+      "properties": []
+    },
+    {
+      "id": "第三块云盘",
+      "label": "StorageLimitation",
+      "properties": []
+    },
+    {
+      "id": "变配矩阵",
+      "label": "ReferenceDocument",
+      "properties": []
+    },
+    {
+      "id": "网络不通与延迟高",
+      "label": "TicketCategory",
+      "properties": []
+    },
+    {
+      "id": "网络与安全 > 专有网络 VPC / 弹性公网 IP",
+      "label": "TicketSubcategory",
+      "properties": []
+    },
+    {
+      "id": "安全组配置错误",
+      "label": "RootCause",
+      "properties": []
+    },
+    {
+      "id": "未绑定EIP",
+      "label": "RootCause",
+      "properties": []
+    },
+    {
+      "id": "安全组",
+      "label": "SecurityGroup",
+      "properties": []
+    },
+    {
+      "id": "入方向规则",
+      "label": "Rule",
+      "properties": []
+    },
+    {
+      "id": "VPC路由表",
+      "label": "RoutingTable",
+      "properties": []
+    },
+    {
+      "id": "目标网段路由条目",
+      "label": "RouteEntry",
+      "properties": []
+    },
+    {
+      "id": "账单与费用争议",
+      "label": "TicketCategory",
+      "properties": []
+    },
+    {
+      "id": "财务与账单 > 退订与退款",
+      "label": "TicketSubcategory",
+      "properties": []
+    },
+    {
+      "id": "五天无理由退款",
+      "label": "BillingPolicy",
+      "properties": []
+    },
+    {
+      "id": "每个账号每年限1次",
+      "label": "Quota",
+      "properties": []
+    },
+    {
+      "id": "按量付费实例",
+      "label": "BillingModel",
+      "properties": []
+    },
+    {
+      "id": "停机不收费",
+      "label": "Feature",
+      "properties": []
+    },
+    {
+      "id": "本地盘实例不支持",
+      "label": "Exception",
+      "properties": []
+    },
+    {
+      "id": "系统事件",
+      "label": "SystemEvent",
+      "properties": []
+    },
+    {
+      "id": "底层物理机（宿主机）",
+      "label": "HostMachine",
+      "properties": []
+    },
+    {
+      "id": "升级、补丁修复、硬件替换",
+      "label": "MaintenanceAction",
+      "properties": []
+    },
+    {
+      "id": "RDS主节点",
+      "label": "DatabaseInstance",
+      "properties": []
+    },
+    {
+      "id": "实例将发生重启或迁移",
+      "label": "Impact",
+      "properties": []
+    },
+    {
+      "id": "3-7天提前通知",
+      "label": "NotificationPolicy",
+      "properties": []
+    },
+    {
+      "id": "高可用版 RDS (主备双节点)",
+      "label": "DatabaseProduct",
+      "properties": [
+        {
+          "key": "high_availability_mode",
+          "value": "primary-standby"
+        }
+      ]
+    },
+    {
+      "id": "跨可用区部署的 ECS 集群",
+      "label": "ComputeCluster",
+      "properties": [
+        {
+          "key": "deployment_strategy",
+          "value": "multi-zone"
+        }
+      ]
+    },
+    {
+      "id": "底层维护对上层业务透明无感",
+      "label": "ResilienceGoal",
+      "properties": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "基础服务",
+      "type": "RESPONSE_WINDOW",
+      "target": "工作日9:00-18:00响应"
+    },
+    {
+      "source": "ecs.c7.large",
+      "type": "CANNOT_UPGRADE_TO_DUE_TO",
+      "target": "不支持的变配路径"
+    },
+    {
+      "source": "系统事件",
+      "type": "INCLUDES_ACTION",
+      "target": "升级、补丁修复、硬件替换"
+    },
+    {
+      "source": "网络不通与延迟高",
+      "type": "COMMON_CAUSE",
+      "target": "安全组配置错误"
+    },
+    {
+      "source": "资源变配与扩容失败",
+      "type": "BELONGS_TO_CATEGORY",
+      "target": "计算与网络 > 实例规格变配"
+    },
+    {
+      "source": "工单提交建议",
+      "type": "REQUIRES",
+      "target": "错误码"
+    },
+    {
+      "source": "企业级支持",
+      "type": "RESPONSE_WINDOW",
+      "target": "7x24小时响应"
+    },
+    {
+      "source": "高可用版 RDS (主备双节点)",
+      "type": "ENABLES",
+      "target": "底层维护对上层业务透明无感"
+    },
+    {
+      "source": "L1",
+      "type": "SUPPORTS",
+      "target": "高频标准化问题"
+    },
+    {
+      "source": "安全组",
+      "type": "CONTAINS",
+      "target": "入方向规则"
+    },
+    {
+      "source": "ecs.c7.large",
+      "type": "CANNOT_UPGRADE_TO_DUE_TO",
+      "target": "ecs.g8a.xlarge"
+    },
+    {
+      "source": "网络不通与延迟高",
+      "type": "BELONGS_TO_CATEGORY",
+      "target": "网络与安全 > 专有网络 VPC / 弹性公网 IP"
+    },
+    {
+      "source": "智能客服",
+      "type": "HAS_LEVEL",
+      "target": "L2"
+    },
+    {
+      "source": "人工工单支持",
+      "type": "HAS_LEVEL",
+      "target": "基础服务"
+    },
+    {
+      "source": "L2",
+      "type": "SUPPORTS",
+      "target": "多条件约束的复杂问题"
+    },
+    {
+      "source": "人工工单支持",
+      "type": "HAS_LEVEL",
+      "target": "企业级支持"
+    },
+    {
+      "source": "智能客服",
+      "type": "UPGRADES_TO",
+      "target": "人工工单支持"
+    },
+    {
+      "source": "跨可用区部署的 ECS 集群",
+      "type": "ENABLES",
+      "target": "底层维护对上层业务透明无感"
+    },
+    {
+      "source": "智能客服",
+      "type": "TRIGGERS_UPGRADE_ON",
+      "target": "用户连续两次反馈未解决"
+    },
+    {
+      "source": "云盘",
+      "type": "LIMITED_TO",
+      "target": "第三块云盘"
+    },
+    {
+      "source": "基础服务",
+      "type": "FIRST_RESPONSE_SLA",
+      "target": "4-8小时内首次回复"
+    },
+    {
+      "source": "智能客服",
+      "type": "TRIGGERS_UPGRADE_ON",
+      "target": "置信度低于0.4"
+    },
+    {
+      "source": "L2",
+      "type": "IMPLEMENTATION_METHOD",
+      "target": "大模型检索增强"
+    },
+    {
+      "source": "按量付费实例",
+      "type": "SUPPORTS_FEATURE",
+      "target": "停机不收费"
+    },
+    {
+      "source": "停机不收费",
+      "type": "EXCEPTION",
+      "target": "本地盘实例不支持"
+    },
+    {
+      "source": "RDS主节点",
+      "type": "NOTIFICATION_LEAD_TIME",
+      "target": "3-7天提前通知"
+    },
+    {
+      "source": "账单与费用争议",
+      "type": "BELONGS_TO_CATEGORY",
+      "target": "财务与账单 > 退订与退款"
+    },
+    {
+      "source": "工单提交建议",
+      "type": "REQUIRES",
+      "target": "实例ID"
+    },
+    {
+      "source": "ecs.c7.large",
+      "type": "CANNOT_UPGRADE_TO_DUE_TO",
+      "target": "库存不足"
+    },
+    {
+      "source": "工单提交建议",
+      "type": "REQUIRES",
+      "target": "报错信息截图"
+    },
+    {
+      "source": "五天无理由退款",
+      "type": "RESTRICTED_BY",
+      "target": "每个账号每年限1次"
+    },
+    {
+      "source": "系统事件",
+      "type": "AFFECTS",
+      "target": "底层物理机（宿主机）"
+    },
+    {
+      "source": "工单提交建议",
+      "type": "REQUIRES",
+      "target": "地域"
+    },
+    {
+      "source": "L1",
+      "type": "IMPLEMENTATION_METHOD",
+      "target": "语义缓存直返"
+    },
+    {
+      "source": "云盘",
+      "type": "TRIGGERS_ERROR_CODE",
+      "target": "OperationDenied.StorageNotSupported"
+    },
+    {
+      "source": "RDS主节点",
+      "type": "NOTIFIED_BEFORE",
+      "target": "实例将发生重启或迁移"
+    },
+    {
+      "source": "企业级支持",
+      "type": "FIRST_RESPONSE_SLA",
+      "target": "P1级别故障15分钟内响应"
+    },
+    {
+      "source": "智能客服",
+      "type": "HAS_LEVEL",
+      "target": "L1"
+    },
+    {
+      "source": "VPC路由表",
+      "type": "MUST_CONTAIN",
+      "target": "目标网段路由条目"
+    },
+    {
+      "source": "智能客服",
+      "type": "PROVIDES_ACCESS_TO",
+      "target": "变配矩阵"
+    },
+    {
+      "source": "网络不通与延迟高",
+      "type": "COMMON_CAUSE",
+      "target": "未绑定EIP"
+    }
+  ]
+}

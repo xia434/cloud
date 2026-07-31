@@ -1,0 +1,1927 @@
+{
+  "nodes": [
+    {
+      "id": "ECS",
+      "label": "Product",
+      "properties": [
+        {
+          "key": "name",
+          "value": "Elastic Compute Service"
+        },
+        {
+          "key": "availability",
+          "value": "99.995% (single instance)"
+        },
+        {
+          "key": "data_reliability",
+          "value": "99.9999999%"
+        }
+      ]
+    },
+    {
+      "id": "华北2（北京）",
+      "label": "Region",
+      "properties": [
+        {
+          "key": "code",
+          "value": "cn-beijing"
+        }
+      ]
+    },
+    {
+      "id": "华东1（杭州）",
+      "label": "Region",
+      "properties": []
+    },
+    {
+      "id": "亚太东南1（新加坡）",
+      "label": "Region",
+      "properties": []
+    },
+    {
+      "id": "cn-beijing-g",
+      "label": "Zone",
+      "properties": [
+        {
+          "key": "name",
+          "value": "可用区 G"
+        }
+      ]
+    },
+    {
+      "id": "cn-beijing-k",
+      "label": "Zone",
+      "properties": [
+        {
+          "key": "name",
+          "value": "可用区 K"
+        },
+        {
+          "key": "role",
+          "value": "核心大区"
+        }
+      ]
+    },
+    {
+      "id": "cn-beijing-l",
+      "label": "Zone",
+      "properties": [
+        {
+          "key": "name",
+          "value": "可用区 L"
+        },
+        {
+          "key": "feature",
+          "value": "抢占式实例优先调度"
+        }
+      ]
+    },
+    {
+      "id": "cn-hangzhou-h",
+      "label": "Zone",
+      "properties": [
+        {
+          "key": "name",
+          "value": "可用区 H"
+        }
+      ]
+    },
+    {
+      "id": "cn-hangzhou-i",
+      "label": "Zone",
+      "properties": [
+        {
+          "key": "name",
+          "value": "可用区 I"
+        }
+      ]
+    },
+    {
+      "id": "ap-southeast-1a",
+      "label": "Zone",
+      "properties": [
+        {
+          "key": "name",
+          "value": "可用区 A"
+        },
+        {
+          "key": "use_case",
+          "value": "国际出海首选"
+        },
+        {
+          "key": "bandwidth_limit",
+          "value": "10Gbps"
+        }
+      ]
+    },
+    {
+      "id": "g8a",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "generation",
+          "value": "8th"
+        },
+        {
+          "key": "category",
+          "value": "通用型"
+        },
+        {
+          "key": "architecture",
+          "value": "AMD EPYC™ 9004 (Genoa)"
+        },
+        {
+          "key": "dpu_enabled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "id": "c8a",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "generation",
+          "value": "8th"
+        },
+        {
+          "key": "category",
+          "value": "计算型"
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "generation",
+          "value": "7th"
+        },
+        {
+          "key": "category",
+          "value": "计算型"
+        },
+        {
+          "key": "cpu_memory_ratio",
+          "value": "1:2"
+        },
+        {
+          "key": "processor",
+          "value": "Intel® Xeon® Scalable Gen3"
+        }
+      ]
+    },
+    {
+      "id": "gn7i",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "generation",
+          "value": "7th"
+        },
+        {
+          "key": "category",
+          "value": "GPU 计算型"
+        },
+        {
+          "key": "use_case",
+          "value": "深度学习推理, AIGC, 云游戏"
+        }
+      ]
+    },
+    {
+      "id": "r7",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "category",
+          "value": "内存型"
+        },
+        {
+          "key": "generation",
+          "value": "7th"
+        }
+      ]
+    },
+    {
+      "id": "g7",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "generation",
+          "value": "7th"
+        },
+        {
+          "key": "category",
+          "value": "通用型"
+        }
+      ]
+    },
+    {
+      "id": "hfc7",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "generation",
+          "value": "7th"
+        },
+        {
+          "key": "category",
+          "value": "高主频计算型"
+        }
+      ]
+    },
+    {
+      "id": "ebm",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "category",
+          "value": "裸金属实例"
+        }
+      ]
+    },
+    {
+      "id": "ecs.g8a.xlarge",
+      "label": "InstanceSpec",
+      "properties": [
+        {
+          "key": "vcpu",
+          "value": "4"
+        },
+        {
+          "key": "memory",
+          "value": "16 GiB"
+        },
+        {
+          "key": "network_bandwidth",
+          "value": "10 Gbps"
+        },
+        {
+          "key": "pps",
+          "value": "2000000"
+        },
+        {
+          "key": "eni_count",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "ecs.g8a.4xlarge",
+      "label": "InstanceSpec",
+      "properties": [
+        {
+          "key": "vcpu",
+          "value": "16"
+        },
+        {
+          "key": "memory",
+          "value": "64 GiB"
+        },
+        {
+          "key": "network_bandwidth",
+          "value": "25 Gbps"
+        },
+        {
+          "key": "pps",
+          "value": "6000000"
+        },
+        {
+          "key": "eni_count",
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "id": "ecs.c7.large",
+      "label": "InstanceSpec",
+      "properties": [
+        {
+          "key": "vcpu",
+          "value": "2"
+        },
+        {
+          "key": "memory",
+          "value": "4 GiB"
+        },
+        {
+          "key": "network_bandwidth",
+          "value": "5 Gbps"
+        },
+        {
+          "key": "pps",
+          "value": "500000"
+        },
+        {
+          "key": "eni_count",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "ecs.c7.8xlarge",
+      "label": "InstanceSpec",
+      "properties": [
+        {
+          "key": "vcpu",
+          "value": "32"
+        },
+        {
+          "key": "memory",
+          "value": "64 GiB"
+        },
+        {
+          "key": "network_bandwidth",
+          "value": "40 Gbps"
+        },
+        {
+          "key": "pps",
+          "value": "12000000"
+        },
+        {
+          "key": "eni_count",
+          "value": "15"
+        }
+      ]
+    },
+    {
+      "id": "ecs.gn7i-c8g1.2xlarge",
+      "label": "InstanceSpec",
+      "properties": [
+        {
+          "key": "vcpu",
+          "value": "8"
+        },
+        {
+          "key": "memory",
+          "value": "30 GiB"
+        },
+        {
+          "key": "gpu_count",
+          "value": "1"
+        },
+        {
+          "key": "gpu_model",
+          "value": "NVIDIA A10"
+        },
+        {
+          "key": "gpu_memory",
+          "value": "24 GB"
+        },
+        {
+          "key": "network_bandwidth",
+          "value": "16 Gbps"
+        }
+      ]
+    },
+    {
+      "id": "ESSD PL0",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "capacity_max",
+          "value": "32768 GiB"
+        },
+        {
+          "key": "iops_max",
+          "value": "10000"
+        },
+        {
+          "key": "throughput_max",
+          "value": "180 MB/s"
+        },
+        {
+          "key": "use_case",
+          "value": "开发测试环境"
+        }
+      ]
+    },
+    {
+      "id": "ESSD PL1",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "capacity_max",
+          "value": "32768 GiB"
+        },
+        {
+          "key": "iops_max",
+          "value": "50000"
+        },
+        {
+          "key": "throughput_max",
+          "value": "350 MB/s"
+        },
+        {
+          "key": "use_case",
+          "value": "中小型数据库和生产环境"
+        }
+      ]
+    },
+    {
+      "id": "ESSD PL2",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "capacity_max",
+          "value": "32768 GiB"
+        },
+        {
+          "key": "iops_max",
+          "value": "100000"
+        },
+        {
+          "key": "throughput_max",
+          "value": "750 MB/s"
+        },
+        {
+          "key": "use_case",
+          "value": "高性能数据库、AI训练等关键业务"
+        }
+      ]
+    },
+    {
+      "id": "ESSD PL3",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "capacity_max",
+          "value": "32768 GiB"
+        },
+        {
+          "key": "iops_max",
+          "value": "1000000"
+        },
+        {
+          "key": "throughput_max",
+          "value": "4000 MB/s"
+        }
+      ]
+    },
+    {
+      "id": "ESSD AutoPL",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "type",
+          "value": "Auto Performance Level"
+        },
+        {
+          "key": "use_case",
+          "value": "自动适配负载的弹性性能云盘"
+        }
+      ]
+    },
+    {
+      "id": "本地 NVMe SSD",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "persistence",
+          "value": "false"
+        },
+        {
+          "key": "latency",
+          "value": "极低"
+        },
+        {
+          "key": "use_case",
+          "value": "临时高速缓存、高性能计算中间态存储"
+        },
+        {
+          "key": "restriction",
+          "value": "仅支持特定本地盘实例族（如 i4），不支持 g8a/c7"
+        }
+      ]
+    },
+    {
+      "id": "AMD EPYC™ 9004（Genoa）",
+      "label": "Processor",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "AMD"
+        },
+        {
+          "key": "family",
+          "value": "EPYC"
+        },
+        {
+          "key": "generation",
+          "value": "Genoa"
+        }
+      ]
+    },
+    {
+      "id": "Intel® Xeon® Scalable Gen3",
+      "label": "Processor",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "Intel"
+        },
+        {
+          "key": "family",
+          "value": "Xeon Scalable"
+        },
+        {
+          "key": "generation",
+          "value": "3rd"
+        }
+      ]
+    },
+    {
+      "id": "NVIDIA A10",
+      "label": "GPU",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "NVIDIA"
+        },
+        {
+          "key": "model",
+          "value": "A10"
+        },
+        {
+          "key": "memory",
+          "value": "24 GB"
+        }
+      ]
+    },
+    {
+      "id": "NVIDIA A100",
+      "label": "GPU",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "NVIDIA"
+        },
+        {
+          "key": "model",
+          "value": "A100"
+        },
+        {
+          "key": "memory",
+          "value": "40/80 GB"
+        }
+      ]
+    },
+    {
+      "id": "DPU",
+      "label": "HardwareComponent",
+      "properties": [
+        {
+          "key": "role",
+          "value": "数据处理单元，卸载网络/存储/安全任务"
+        }
+      ]
+    },
+    {
+      "id": "神龙架构",
+      "label": "Architecture",
+      "properties": [
+        {
+          "key": "type",
+          "value": "自研虚拟化架构"
+        },
+        {
+          "key": "scope",
+          "value": "软硬件协同设计"
+        }
+      ]
+    },
+    {
+      "id": "c7-16vcpu+",
+      "label": "InstanceConstraint",
+      "properties": [
+        {
+          "key": "description",
+          "value": "16 vCPU 及以上规格的 c7 实例"
+        }
+      ]
+    },
+    {
+      "id": "专有网络（VPC）",
+      "label": "Network",
+      "properties": []
+    },
+    {
+      "id": "经典网络",
+      "label": "Network",
+      "properties": []
+    },
+    {
+      "id": "企业级实例",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "category",
+          "value": "enterprise"
+        }
+      ]
+    },
+    {
+      "id": "公网带宽计费",
+      "label": "BillingRule",
+      "properties": [
+        {
+          "key": "scope",
+          "value": "internet"
+        }
+      ]
+    },
+    {
+      "id": "按固定带宽计费",
+      "label": "BillingRule",
+      "properties": [
+        {
+          "key": "model",
+          "value": "bandwidth"
+        }
+      ]
+    },
+    {
+      "id": "按使用流量计费",
+      "label": "BillingRule",
+      "properties": [
+        {
+          "key": "model",
+          "value": "traffic"
+        }
+      ]
+    },
+    {
+      "id": "1 Mbps - 5 Mbps",
+      "label": "BandwidthRange",
+      "properties": [
+        {
+          "key": "min",
+          "value": "1"
+        },
+        {
+          "key": "max",
+          "value": "5"
+        },
+        {
+          "key": "unit",
+          "value": "Mbps"
+        }
+      ]
+    },
+    {
+      "id": "6 Mbps 以上",
+      "label": "BandwidthRange",
+      "properties": [
+        {
+          "key": "min",
+          "value": "6"
+        },
+        {
+          "key": "unit",
+          "value": "Mbps"
+        }
+      ]
+    },
+    {
+      "id": "23元/Mbps/月",
+      "label": "Price",
+      "properties": [
+        {
+          "key": "amount",
+          "value": "23"
+        },
+        {
+          "key": "unit",
+          "value": "CNY/Mbps/month"
+        }
+      ]
+    },
+    {
+      "id": "80元/Mbps/月",
+      "label": "Price",
+      "properties": [
+        {
+          "key": "amount",
+          "value": "80"
+        },
+        {
+          "key": "unit",
+          "value": "CNY/Mbps/month"
+        }
+      ]
+    },
+    {
+      "id": "200 Mbps",
+      "label": "BandwidthLimit",
+      "properties": [
+        {
+          "key": "value",
+          "value": "200"
+        },
+        {
+          "key": "unit",
+          "value": "Mbps"
+        }
+      ]
+    },
+    {
+      "id": "0.8元/GB",
+      "label": "Price",
+      "properties": [
+        {
+          "key": "amount",
+          "value": "0.8"
+        },
+        {
+          "key": "unit",
+          "value": "CNY/GB"
+        }
+      ]
+    },
+    {
+      "id": "入网流量免费",
+      "label": "Policy",
+      "properties": [
+        {
+          "key": "direction",
+          "value": "inbound"
+        },
+        {
+          "key": "charge",
+          "value": "free"
+        }
+      ]
+    },
+    {
+      "id": "100 Mbps",
+      "label": "BandwidthLimit",
+      "properties": [
+        {
+          "key": "value",
+          "value": "100"
+        },
+        {
+          "key": "unit",
+          "value": "Mbps"
+        }
+      ]
+    },
+    {
+      "id": "安全组（Security Group）",
+      "label": "SecurityGroup",
+      "properties": []
+    },
+    {
+      "id": "默认拒绝所有入方向流量",
+      "label": "SecurityRule",
+      "properties": [
+        {
+          "key": "direction",
+          "value": "inbound"
+        },
+        {
+          "key": "action",
+          "value": "deny"
+        }
+      ]
+    },
+    {
+      "id": "允许所有出方向流量",
+      "label": "SecurityRule",
+      "properties": [
+        {
+          "key": "direction",
+          "value": "outbound"
+        },
+        {
+          "key": "action",
+          "value": "allow"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "label": "Integer",
+      "properties": [
+        {
+          "key": "value",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "id": "包年包月（Subscription）",
+      "label": "BillingMode",
+      "properties": [
+        {
+          "key": "name",
+          "value": "Subscription"
+        }
+      ]
+    },
+    {
+      "id": "核心业务",
+      "label": "UseCase",
+      "properties": []
+    },
+    {
+      "id": "24小时不间断服务",
+      "label": "UseCase",
+      "properties": []
+    },
+    {
+      "id": "8.5 折",
+      "label": "Discount",
+      "properties": [
+        {
+          "key": "rate",
+          "value": "0.85"
+        }
+      ]
+    },
+    {
+      "id": "5.5 折",
+      "label": "Discount",
+      "properties": [
+        {
+          "key": "rate",
+          "value": "0.55"
+        }
+      ]
+    },
+    {
+      "id": "按年购买",
+      "label": "Duration",
+      "properties": [
+        {
+          "key": "years",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "3年购买",
+      "label": "Duration",
+      "properties": [
+        {
+          "key": "years",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "五天无理由退款",
+      "label": "RefundPolicy",
+      "properties": [
+        {
+          "key": "name",
+          "value": "FiveDayNoReasonRefund"
+        }
+      ]
+    },
+    {
+      "id": "新购实例",
+      "label": "InstanceLifecycleEvent",
+      "properties": [
+        {
+          "key": "phase",
+          "value": "creation"
+        }
+      ]
+    },
+    {
+      "id": "5 天内",
+      "label": "TimeWindow",
+      "properties": [
+        {
+          "key": "duration_days",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "id": "全额退款",
+      "label": "RefundType",
+      "properties": [
+        {
+          "key": "level",
+          "value": "full"
+        }
+      ]
+    },
+    {
+      "id": "每个账号每年限额 1 次",
+      "label": "Quota",
+      "properties": [
+        {
+          "key": "limit_per_account_per_year",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "最多退 10 台",
+      "label": "Quota",
+      "properties": [
+        {
+          "key": "max_instances",
+          "value": "10"
+        }
+      ]
+    },
+    {
+      "id": "非全额退订",
+      "label": "RefundPolicy",
+      "properties": [
+        {
+          "key": "name",
+          "value": "PartialRefundAfterGracePeriod"
+        }
+      ]
+    },
+    {
+      "id": "超过 5 天后退订",
+      "label": "TimeWindow",
+      "properties": [
+        {
+          "key": "after_days",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "id": "已使用天数的按量计费原价",
+      "label": "ChargeComponent",
+      "properties": [
+        {
+          "key": "type",
+          "value": "used_time_pay_as_you_go"
+        }
+      ]
+    },
+    {
+      "id": "15% 的退订手续费",
+      "label": "ChargeComponent",
+      "properties": [
+        {
+          "key": "type",
+          "value": "cancellation_fee"
+        },
+        {
+          "key": "rate",
+          "value": "0.15"
+        }
+      ]
+    },
+    {
+      "id": "退款为 0",
+      "label": "RefundResult",
+      "properties": [
+        {
+          "key": "amount",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "id": "已使用费用超过支付金额",
+      "label": "Condition",
+      "properties": [
+        {
+          "key": "expression",
+          "value": "used_charge > paid_amount"
+        }
+      ]
+    },
+    {
+      "id": "按量付费（Pay-As-You-Go）",
+      "label": "BillingMode",
+      "properties": [
+        {
+          "key": "name",
+          "value": "PayAsYouGo"
+        }
+      ]
+    },
+    {
+      "id": "按秒计费",
+      "label": "BillingGranularity",
+      "properties": [
+        {
+          "key": "unit",
+          "value": "second"
+        }
+      ]
+    },
+    {
+      "id": "每小时整点出账单",
+      "label": "BillingCycle",
+      "properties": [
+        {
+          "key": "frequency",
+          "value": "hourly"
+        },
+        {
+          "key": "trigger",
+          "value": "on_the_hour"
+        }
+      ]
+    },
+    {
+      "id": "停机不收费功能",
+      "label": "Feature",
+      "properties": [
+        {
+          "key": "name",
+          "value": "StopChargingOnStop"
+        }
+      ]
+    },
+    {
+      "id": "vCPU和内存",
+      "label": "Resource",
+      "properties": [
+        {
+          "key": "type",
+          "value": "compute"
+        }
+      ]
+    },
+    {
+      "id": "云盘",
+      "label": "Storage",
+      "properties": [
+        {
+          "key": "type",
+          "value": "cloud_disk"
+        }
+      ]
+    },
+    {
+      "id": "弹性公网IP",
+      "label": "EIP",
+      "properties": []
+    },
+    {
+      "id": "未解绑",
+      "label": "State",
+      "properties": [
+        {
+          "key": "binding_status",
+          "value": "bound"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "family",
+          "value": "i4"
+        },
+        {
+          "key": "storage_type",
+          "value": "local"
+        }
+      ]
+    },
+    {
+      "id": "带本地盘的 GPU 实例",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "gpu_enabled",
+          "value": "true"
+        },
+        {
+          "key": "storage_type",
+          "value": "local"
+        }
+      ]
+    },
+    {
+      "id": "抢占式实例（Spot Instance）",
+      "label": "InstanceType",
+      "properties": [
+        {
+          "key": "preemptible",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "id": "价格随资源供需波动",
+      "label": "PricingModel",
+      "properties": [
+        {
+          "key": "dynamic",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "id": "最高折扣可达按量付费的 1 折",
+      "label": "Discount",
+      "properties": [
+        {
+          "key": "rate",
+          "value": "0.1"
+        }
+      ]
+    },
+    {
+      "id": "1 小时价格与库存保护期",
+      "label": "ProtectionPeriod",
+      "properties": [
+        {
+          "key": "duration_hours",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "自动释放（销毁）实例",
+      "label": "Action",
+      "properties": [
+        {
+          "key": "name",
+          "value": "terminate"
+        }
+      ]
+    },
+    {
+      "id": "市场价格高于您的出价",
+      "label": "Condition",
+      "properties": [
+        {
+          "key": "expression",
+          "value": "market_price > bid_price"
+        }
+      ]
+    },
+    {
+      "id": "系统资源池不足",
+      "label": "Condition",
+      "properties": [
+        {
+          "key": "expression",
+          "value": "capacity_shortage"
+        }
+      ]
+    },
+    {
+      "id": "提前 5 分钟发送通知",
+      "label": "NoticePolicy",
+      "properties": [
+        {
+          "key": "lead_time_minutes",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "id": "包年包月",
+      "label": "BillingMode",
+      "properties": [
+        {
+          "key": "name",
+          "value": "Subscription"
+        }
+      ]
+    },
+    {
+      "id": "修改实例规格",
+      "label": "Operation",
+      "properties": [
+        {
+          "key": "name",
+          "value": "modify_instance_type"
+        }
+      ]
+    },
+    {
+      "id": "Alibaba Cloud Linux 3",
+      "label": "OSImage",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "Alibaba Cloud"
+        },
+        {
+          "key": "version",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "TencentOS Server 3.1",
+      "label": "OSImage",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "Tencent"
+        },
+        {
+          "key": "version",
+          "value": "3.1"
+        }
+      ]
+    },
+    {
+      "id": "CentOS 替代方案",
+      "label": "OSCategory",
+      "properties": [
+        {
+          "key": "base",
+          "value": "CentOS"
+        }
+      ]
+    },
+    {
+      "id": "免费提供企业级支持",
+      "label": "SupportLevel",
+      "properties": [
+        {
+          "key": "tier",
+          "value": "enterprise"
+        },
+        {
+          "key": "cost",
+          "value": "free"
+        }
+      ]
+    },
+    {
+      "id": "Windows Server 2022 数据中心版",
+      "label": "OSImage",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "Microsoft"
+        },
+        {
+          "key": "edition",
+          "value": "Datacenter"
+        },
+        {
+          "key": "version",
+          "value": "2022"
+        }
+      ]
+    },
+    {
+      "id": "4 vCPU 及以上规格实例",
+      "label": "InstanceSpecRequirement",
+      "properties": [
+        {
+          "key": "min_vcpu",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "id": "微软 License 费用",
+      "label": "LicenseFee",
+      "properties": [
+        {
+          "key": "vendor",
+          "value": "Microsoft"
+        }
+      ]
+    },
+    {
+      "id": "包年包月价格比 Linux 版本高约 15%",
+      "label": "PriceDifference",
+      "properties": [
+        {
+          "key": "percentage",
+          "value": "15"
+        },
+        {
+          "key": "comparison",
+          "value": "vs_linux"
+        }
+      ]
+    },
+    {
+      "id": "自定义镜像（Custom Image）",
+      "label": "Image",
+      "properties": [
+        {
+          "key": "type",
+          "value": "custom"
+        }
+      ]
+    },
+    {
+      "id": "跨地域复制",
+      "label": "Operation",
+      "properties": [
+        {
+          "key": "name",
+          "value": "copy_across_regions"
+        }
+      ]
+    },
+    {
+      "id": "公网流量",
+      "label": "Resource",
+      "properties": [
+        {
+          "key": "type",
+          "value": "public_network_traffic"
+        }
+      ]
+    },
+    {
+      "id": "产生相应费用",
+      "label": "CostImplication",
+      "properties": [
+        {
+          "key": "implication",
+          "value": "charged"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "安全组（Security Group）",
+      "type": "HAS_MAX_INSTANCE_ASSOCIATION",
+      "target": "5"
+    },
+    {
+      "source": "g8a",
+      "type": "BASED_ON_ARCHITECTURE",
+      "target": "神龙架构"
+    },
+    {
+      "source": "非全额退订",
+      "type": "DEDUCTS",
+      "target": "15% 的退订手续费"
+    },
+    {
+      "source": "已使用费用超过支付金额",
+      "type": "TRIGGERS",
+      "target": "退款为 0"
+    },
+    {
+      "source": "抢占式实例（Spot Instance）",
+      "type": "HAS_PRICING_MODEL",
+      "target": "价格随资源供需波动"
+    },
+    {
+      "source": "cn-beijing-k",
+      "type": "SUPPORTS",
+      "target": "ESSD PL1"
+    },
+    {
+      "source": "cn-beijing-k",
+      "type": "SUPPORTS",
+      "target": "ESSD PL2"
+    },
+    {
+      "source": "停机不收费功能",
+      "type": "CONTINUES_CHARGING_FOR",
+      "target": "云盘"
+    },
+    {
+      "source": "华东1（杭州）",
+      "type": "CONTAINS",
+      "target": "cn-hangzhou-h"
+    },
+    {
+      "source": "cn-beijing-l",
+      "type": "SUPPORTS",
+      "target": "r7"
+    },
+    {
+      "source": "ESSD PL1",
+      "type": "SUPPORTS",
+      "target": "g8a"
+    },
+    {
+      "source": "抢占式实例（Spot Instance）",
+      "type": "RESTRICTS_OPERATION",
+      "target": "修改实例规格"
+    },
+    {
+      "source": "g8a",
+      "type": "USES_DPU",
+      "target": "DPU"
+    },
+    {
+      "source": "亚太东南1（新加坡）",
+      "type": "CONTAINS",
+      "target": "ap-southeast-1a"
+    },
+    {
+      "source": "包年包月（Subscription）",
+      "type": "HAS_DISCOUNT",
+      "target": "8.5 折"
+    },
+    {
+      "source": "Alibaba Cloud Linux 3",
+      "type": "IS_ALTERNATIVE_TO",
+      "target": "CentOS 替代方案"
+    },
+    {
+      "source": "停机不收费功能",
+      "type": "RESTRICTS",
+      "target": "i4"
+    },
+    {
+      "source": "cn-hangzhou-h",
+      "type": "SUPPORTS",
+      "target": "c7"
+    },
+    {
+      "source": "抢占式实例（Spot Instance）",
+      "type": "ACTION_ON_PREEMPTION",
+      "target": "自动释放（销毁）实例"
+    },
+    {
+      "source": "ESSD PL2",
+      "type": "SUPPORTS",
+      "target": "gn7i"
+    },
+    {
+      "source": "ESSD PL0",
+      "type": "SUPPORTS",
+      "target": "c7"
+    },
+    {
+      "source": "五天无理由退款",
+      "type": "APPLIES_TO",
+      "target": "新购实例"
+    },
+    {
+      "source": "非全额退订",
+      "type": "RESULT_IF_CONDITION_MET",
+      "target": "退款为 0"
+    },
+    {
+      "source": "经典网络",
+      "type": "RESTRICTS",
+      "target": "企业级实例"
+    },
+    {
+      "source": "华北2（北京）",
+      "type": "CONTAINS",
+      "target": "cn-beijing-l"
+    },
+    {
+      "source": "五天无理由退款",
+      "type": "HAS_REFUND_TYPE",
+      "target": "全额退款"
+    },
+    {
+      "source": "ESSD PL2",
+      "type": "SUPPORTS",
+      "target": "c7-16vcpu+"
+    },
+    {
+      "source": "gn7i",
+      "type": "BASED_ON_ARCHITECTURE",
+      "target": "神龙架构"
+    },
+    {
+      "source": "按固定带宽计费",
+      "type": "HAS_MAX_BANDWIDTH",
+      "target": "200 Mbps"
+    },
+    {
+      "source": "自定义镜像（Custom Image）",
+      "type": "SUPPORTS_OPERATION",
+      "target": "跨地域复制"
+    },
+    {
+      "source": "gn7i",
+      "type": "IS_INSTANCE_TYPE_OF",
+      "target": "ECS"
+    },
+    {
+      "source": "Alibaba Cloud Linux 3",
+      "type": "HAS_SUPPORT_LEVEL",
+      "target": "免费提供企业级支持"
+    },
+    {
+      "source": "ap-southeast-1a",
+      "type": "SUPPORTS",
+      "target": "g7"
+    },
+    {
+      "source": "100 Mbps",
+      "type": "APPLIES_TO_REGION",
+      "target": "华北2（北京）"
+    },
+    {
+      "source": "安全组（Security Group）",
+      "type": "HAS_DEFAULT_RULE",
+      "target": "允许所有出方向流量"
+    },
+    {
+      "source": "ESSD PL3",
+      "type": "IS_STORAGE_TYPE_OF",
+      "target": "ECS"
+    },
+    {
+      "source": "cn-hangzhou-i",
+      "type": "SUPPORTS",
+      "target": "hfc7"
+    },
+    {
+      "source": "华北2（北京）",
+      "type": "CONTAINS",
+      "target": "cn-beijing-k"
+    },
+    {
+      "source": "停机不收费功能",
+      "type": "RESTRICTS",
+      "target": "带本地盘的 GPU 实例"
+    },
+    {
+      "source": "跨地域复制",
+      "type": "CONSUMES_RESOURCE",
+      "target": "公网流量"
+    },
+    {
+      "source": "g8a",
+      "type": "IS_INSTANCE_TYPE_OF",
+      "target": "ECS"
+    },
+    {
+      "source": "ESSD PL0",
+      "type": "IS_STORAGE_TYPE_OF",
+      "target": "ECS"
+    },
+    {
+      "source": "按固定带宽计费",
+      "type": "SUPPORTS",
+      "target": "公网带宽计费"
+    },
+    {
+      "source": "c7",
+      "type": "USES_PROCESSOR",
+      "target": "Intel® Xeon® Scalable Gen3"
+    },
+    {
+      "source": "ESSD PL1",
+      "type": "IS_STORAGE_TYPE_OF",
+      "target": "ECS"
+    },
+    {
+      "source": "c7",
+      "type": "CONTAINS",
+      "target": "ecs.c7.8xlarge"
+    },
+    {
+      "source": "按使用流量计费",
+      "type": "SUPPORTS",
+      "target": "公网带宽计费"
+    },
+    {
+      "source": "ESSD PL1",
+      "type": "SUPPORTS",
+      "target": "gn7i"
+    },
+    {
+      "source": "g8a",
+      "type": "USES_PROCESSOR",
+      "target": "AMD EPYC™ 9004（Genoa）"
+    },
+    {
+      "source": "非全额退订",
+      "type": "APPLIES_TO",
+      "target": "超过 5 天后退订"
+    },
+    {
+      "source": "TencentOS Server 3.1",
+      "type": "HAS_SUPPORT_LEVEL",
+      "target": "免费提供企业级支持"
+    },
+    {
+      "source": "弹性公网IP",
+      "type": "CONDITION_FOR_CONTINUOUS_CHARGE",
+      "target": "未解绑"
+    },
+    {
+      "source": "1 Mbps - 5 Mbps",
+      "type": "HAS_PRICE",
+      "target": "23元/Mbps/月"
+    },
+    {
+      "source": "按量付费（Pay-As-You-Go）",
+      "type": "HAS_BILLING_GRANULARITY",
+      "target": "按秒计费"
+    },
+    {
+      "source": "c7",
+      "type": "BASED_ON_ARCHITECTURE",
+      "target": "神龙架构"
+    },
+    {
+      "source": "g8a",
+      "type": "CONTAINS",
+      "target": "ecs.g8a.4xlarge"
+    },
+    {
+      "source": "自动释放（销毁）实例",
+      "type": "TRIGGERED_BY",
+      "target": "系统资源池不足"
+    },
+    {
+      "source": "cn-hangzhou-h",
+      "type": "SUPPORTS",
+      "target": "g7"
+    },
+    {
+      "source": "c7",
+      "type": "IS_INSTANCE_TYPE_OF",
+      "target": "ECS"
+    },
+    {
+      "source": "ESSD PL2",
+      "type": "IS_STORAGE_TYPE_OF",
+      "target": "ECS"
+    },
+    {
+      "source": "gn7i",
+      "type": "USES_GPU",
+      "target": "NVIDIA A100"
+    },
+    {
+      "source": "按固定带宽计费",
+      "type": "HAS_BANDWIDTH_RANGE",
+      "target": "6 Mbps 以上"
+    },
+    {
+      "source": "抢占式实例（Spot Instance）",
+      "type": "HAS_PROTECTION_PERIOD",
+      "target": "1 小时价格与库存保护期"
+    },
+    {
+      "source": "包年包月（Subscription）",
+      "type": "HAS_DISCOUNT",
+      "target": "5.5 折"
+    },
+    {
+      "source": "ESSD PL2",
+      "type": "RESTRICTS",
+      "target": "c7"
+    },
+    {
+      "source": "按固定带宽计费",
+      "type": "HAS_BANDWIDTH_RANGE",
+      "target": "1 Mbps - 5 Mbps"
+    },
+    {
+      "source": "按量付费（Pay-As-You-Go）",
+      "type": "HAS_BILLING_CYCLE",
+      "target": "每小时整点出账单"
+    },
+    {
+      "source": "停机不收费功能",
+      "type": "STOPS_CHARGING_FOR",
+      "target": "vCPU和内存"
+    },
+    {
+      "source": "华东1（杭州）",
+      "type": "CONTAINS",
+      "target": "cn-hangzhou-i"
+    },
+    {
+      "source": "TencentOS Server 3.1",
+      "type": "IS_ALTERNATIVE_TO",
+      "target": "CentOS 替代方案"
+    },
+    {
+      "source": "cn-beijing-k",
+      "type": "SUPPORTS",
+      "target": "c8a"
+    },
+    {
+      "source": "g8a",
+      "type": "CONTAINS",
+      "target": "ecs.g8a.xlarge"
+    },
+    {
+      "source": "五天无理由退款",
+      "type": "HAS_QUOTA",
+      "target": "每个账号每年限额 1 次"
+    },
+    {
+      "source": "抢占式实例（Spot Instance）",
+      "type": "HAS_MAX_DISCOUNT",
+      "target": "最高折扣可达按量付费的 1 折"
+    },
+    {
+      "source": "自动释放（销毁）实例",
+      "type": "TRIGGERED_BY",
+      "target": "市场价格高于您的出价"
+    },
+    {
+      "source": "ecs.gn7i-c8g1.2xlarge",
+      "type": "REQUIRES",
+      "target": "ESSD PL3"
+    },
+    {
+      "source": "gn7i",
+      "type": "CONTAINS",
+      "target": "ecs.gn7i-c8g1.2xlarge"
+    },
+    {
+      "source": "抢占式实例（Spot Instance）",
+      "type": "RESTRICTS_CONVERSION_TO",
+      "target": "包年包月"
+    },
+    {
+      "source": "按使用流量计费",
+      "type": "HAS_PRICE",
+      "target": "0.8元/GB"
+    },
+    {
+      "source": "Windows Server 2022 数据中心版",
+      "type": "REQUIRES_MINIMUM_SPEC",
+      "target": "4 vCPU 及以上规格实例"
+    },
+    {
+      "source": "cn-beijing-g",
+      "type": "SUPPORTS",
+      "target": "g8a"
+    },
+    {
+      "source": "ap-southeast-1a",
+      "type": "SUPPORTS",
+      "target": "c7"
+    },
+    {
+      "source": "五天无理由退款",
+      "type": "HAS_TIME_LIMIT",
+      "target": "5 天内"
+    },
+    {
+      "source": "cn-beijing-k",
+      "type": "SUPPORTS",
+      "target": "ESSD PL3"
+    },
+    {
+      "source": "ESSD PL1",
+      "type": "SUPPORTS",
+      "target": "c7"
+    },
+    {
+      "source": "cn-beijing-g",
+      "type": "SUPPORTS",
+      "target": "c8a"
+    },
+    {
+      "source": "6 Mbps 以上",
+      "type": "HAS_PRICE",
+      "target": "80元/Mbps/月"
+    },
+    {
+      "source": "华北2（北京）",
+      "type": "CONTAINS",
+      "target": "cn-beijing-g"
+    },
+    {
+      "source": "ESSD PL0",
+      "type": "SUPPORTS",
+      "target": "g8a"
+    },
+    {
+      "source": "微软 License 费用",
+      "type": "CAUSES_PRICE_DIFFERENCE",
+      "target": "包年包月价格比 Linux 版本高约 15%"
+    },
+    {
+      "source": "ESSD PL0",
+      "type": "SUPPORTS",
+      "target": "gn7i"
+    },
+    {
+      "source": "Windows Server 2022 数据中心版",
+      "type": "INCLUDES_LICENSE_FEE",
+      "target": "微软 License 费用"
+    },
+    {
+      "source": "cn-beijing-k",
+      "type": "SUPPORTS",
+      "target": "g8a"
+    },
+    {
+      "source": "cn-beijing-k",
+      "type": "SUPPORTS",
+      "target": "gn7i"
+    },
+    {
+      "source": "安全组（Security Group）",
+      "type": "HAS_DEFAULT_RULE",
+      "target": "默认拒绝所有入方向流量"
+    },
+    {
+      "source": "c7",
+      "type": "CONTAINS",
+      "target": "ecs.c7.large"
+    },
+    {
+      "source": "5.5 折",
+      "type": "APPLIES_TO_DURATION",
+      "target": "3年购买"
+    },
+    {
+      "source": "cn-beijing-g",
+      "type": "SUPPORTS",
+      "target": "ESSD AutoPL"
+    },
+    {
+      "source": "8.5 折",
+      "type": "APPLIES_TO_DURATION",
+      "target": "按年购买"
+    },
+    {
+      "source": "自动释放（销毁）实例",
+      "type": "HAS_NOTICE_PERIOD",
+      "target": "提前 5 分钟发送通知"
+    },
+    {
+      "source": "包年包月（Subscription）",
+      "type": "RECOMMENDED_FOR",
+      "target": "24小时不间断服务"
+    },
+    {
+      "source": "包年包月（Subscription）",
+      "type": "RECOMMENDED_FOR",
+      "target": "核心业务"
+    },
+    {
+      "source": "每个账号每年限额 1 次",
+      "type": "HAS_QUANTITY_LIMIT",
+      "target": "最多退 10 台"
+    },
+    {
+      "source": "停机不收费功能",
+      "type": "CONTINUES_CHARGING_FOR",
+      "target": "弹性公网IP"
+    },
+    {
+      "source": "非全额退订",
+      "type": "DEDUCTS",
+      "target": "已使用天数的按量计费原价"
+    },
+    {
+      "source": "按使用流量计费",
+      "type": "HAS_PEAK_BANDWIDTH",
+      "target": "100 Mbps"
+    },
+    {
+      "source": "ESSD PL2",
+      "type": "SUPPORTS",
+      "target": "g8a"
+    },
+    {
+      "source": "公网流量",
+      "type": "HAS_COST",
+      "target": "产生相应费用"
+    },
+    {
+      "source": "cn-hangzhou-h",
+      "type": "SUPPORTS",
+      "target": "ebm"
+    },
+    {
+      "source": "专有网络（VPC）",
+      "type": "REQUIRES",
+      "target": "企业级实例"
+    },
+    {
+      "source": "cn-beijing-k",
+      "type": "SUPPORTS",
+      "target": "ESSD PL0"
+    },
+    {
+      "source": "cn-beijing-g",
+      "type": "SUPPORTS",
+      "target": "ESSD PL1"
+    },
+    {
+      "source": "按使用流量计费",
+      "type": "HAS_POLICY",
+      "target": "入网流量免费"
+    },
+    {
+      "source": "ecs.gn7i-c8g1.2xlarge",
+      "type": "REQUIRES",
+      "target": "ESSD PL2"
+    },
+    {
+      "source": "gn7i",
+      "type": "USES_GPU",
+      "target": "NVIDIA A10"
+    }
+  ]
+}
