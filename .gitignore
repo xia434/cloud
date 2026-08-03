@@ -24,6 +24,9 @@ wheels/
 venv/
 ENV/
 env/
+eval_env/
+*_env/
+.venv/
 
 # IDE
 .vscode/

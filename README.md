@@ -319,129 +319,41 @@ data: {"done": true}                        # 流结束
 
 ## 八、工程演进记录
 
-### P0 - 必补强项（评估基础设施已完成，质量门禁持续优化）
+### P0 - 必补强项（已完成）
 
-#### P0-1 真流式改造
-
-**问题**：原实现用 `graph.ainvoke()` 同步等待完整结果，再切片 yield（伪流式），首字延迟 = 整个 Agent 推理时间。
-
-**改造**：[chat_service.py](app/service/chat_service.py) 改用 `graph.astream_events(version="v2")` 监听 `on_chat_model_stream` 事件，实现 token 级真流式；同时输出 `route`/`tool_start`/`tool_end`/`cache_hit` 元数据事件；修复原实现未调用 `set_cache` 写入缓存的 bug。前端 [App.vue](front/cloud_agent/src/App.vue) 新增 Agent 执行过程可视化。
-
-#### P0-2 集成 Langfuse 可观测性
-
-**问题**：Agent 系统在生产环境没有 trace 等于裸奔。
-
-**改造**：新增 [app/infra/observability.py](app/infra/observability.py)（含优雅降级）；chat_service.py 注入 Langfuse callback 到 graph config；新增 [/api/health](app/router/health.py) 诊断端点；.env + settings.py 加入 Langfuse 配置项。
-
-#### P0-3 官方 Ragas RAG 离线评估
-
-**问题**：缺少 RAG 评估体系，无法评估 RAG 质量。
-
-**改造**：新增 [agent/eval/](agent/eval/dataset.py) 模块：
-- 11 条覆盖 6 份文档和 Product/Recommendation 路由的黄金标准 QA pairs
-- 官方 Ragas 四大指标（faithfulness/answer_relevancy/context_precision/context_recall）
-- 本地检索覆盖率（不依赖评估模型）
-- 可配置阈值与非零退出码，输出逐样本 JSON 报告供回归核查
+| 编号 | 主题 | 问题 | 改造 |
+|------|------|------|------|
+| P0-1 | 真流式改造 | 原 `ainvoke()` 同步等待再切片 yield，首字延迟 = 整个推理时间 | [chat_service.py](app/service/chat_service.py) 改用 `astream_events(v2)` 监听 `on_chat_model_stream`，输出 token 级真流式 + `route`/`tool_start`/`tool_end`/`cache_hit` 元数据事件；修复缓存写入 bug；前端 [App.vue](front/cloud_agent/src/App.vue) 新增思考过程可视化 |
+| P0-2 | Langfuse 可观测性 | Agent 系统无 trace 等于裸奔 | 新增 [observability.py](app/infra/observability.py)（含优雅降级）；注入 Langfuse callback 到 graph config；新增 [/api/health](app/router/health.py) 诊断端点 |
+| P0-3 | Ragas RAG 离线评估 | 缺少 RAG 评估体系 | 新增 [agent/eval/](agent/eval/dataset.py)：11 条黄金 QA + 官方四指标 + 本地检索覆盖率 + 可配置阈值与非零退出码 |
 
 ### P1 - 强烈建议补强（已完成）
 
-#### P1-4 修复 MCP server 同步阻塞
-
-**问题**：[cloud_platform_server.py](agent/mcp_servers/cloud_platform_server.py) 用同步 PyMySQL，在 FastMCP 异步上下文里会阻塞事件循环。
-
-**改造**：用 `aiomysql.create_pool` 创建全局连接池（懒加载）；3 个 DB 工具改为 async；未安装 aiomysql 时降级到 PyMySQL 同步模式。
-
-#### P1-5 修复 get_promotion_materials 重复定义 bug
-
-**问题**：原文件存在两个同名函数（按 product_id 和按 product_name），后者覆盖前者，导致 PromotionAgent 按精确 product_id 调用时拿到 default 兜底数据。
-
-**改造**：合并为单一实现，优先精确 product_id 匹配，匹配不到走关键词模糊匹配，统一输出 `poster_url` 字段。
-
-#### P1-6 编写 docker-compose.yml
-
-**改造**：新增 [docker-compose.yml](docker-compose.yml)，覆盖 Redis/MySQL/Neo4j/Milvus(含 etcd+MinIO)/Langfuse，全部带 healthcheck，一键 `docker compose up -d` 拉起。
-
-#### P1-7 前端对话历史持久化
-
-**问题**：[App.vue](front/cloud_agent/src/App.vue) 的 `switchSession` 直接清空 `messages`，会话切换丢失历史。
-
-**改造**：新增 [/api/history](app/router/history.py) 路由从 Redis 拉取会话历史；前端 switchSession 改为调接口拉取历史并降级为空会话。
-
-#### P1-8 Prompt 抽离到 prompts 目录
-
-**问题**：所有 system_prompt 散落在各 agent 的 `__call__` 里，没有版本管理。
-
-**改造**：新增 [agent/prompts/templates.py](agent/prompts/templates.py)（7 个 Prompt 常量 + `format_memory_context` 工具函数）；6 个 agent 改为引用常量。
+| 编号 | 主题 | 问题 | 改造 |
+|------|------|------|------|
+| P1-4 | MCP 异步化 | 同步 PyMySQL 在 FastMCP 异步上下文阻塞事件循环 | [cloud_platform_server.py](agent/mcp_servers/cloud_platform_server.py) 改用 `aiomysql.create_pool` 全局连接池；未安装时降级同步模式 |
+| P1-5 | 修复工具重复定义 | 两个同名 `get_promotion_materials` 后者覆盖前者，精确 product_id 拿到兜底数据 | 合并为单一实现：优先精确 product_id 匹配，否则关键词模糊匹配，统一输出 `poster_url` |
+| P1-6 | docker-compose | 缺少一键部署 | 新增 [docker-compose.yml](docker-compose.yml)，覆盖 Redis/MySQL/Neo4j/Milvus(含 etcd+MinIO)/Langfuse，全部带 healthcheck |
+| P1-7 | 前端历史持久化 | switchSession 清空 messages 丢失历史 | 新增 [/api/history](app/router/history.py) 从 Redis 拉取；前端切换会话调接口并降级为空会话 |
+| P1-8 | Prompt 治理 | system_prompt 散落各 agent 无版本管理 | 新增 [templates.py](agent/prompts/templates.py) 集中管理 7 个常量 + `format_memory_context`；6 个 agent 改为引用常量 |
 
 ### P2 - 锦上添花（已完成）
 
-#### P2-9 补充 pytest 单元测试
-
-**改造**：新增 [agent/tests/test_unit.py](agent/tests/test_unit.py)，覆盖 Prompt、可观测性降级、MCP、安全、流式策略、评估与检索重排等逻辑。
-
-#### P2-10 LLM 调用加重试机制
-
-**问题**：所有 Agent 直接 `ChatOpenAI(...)` 创建 LLM，没有重试机制，网络抖动即全流程崩溃。
-
-**改造**：新增 [agent/core/llm_factory.py](agent/core/llm_factory.py)（tenacity 重试 + 指数退避 + 可重试异常过滤，包装 invoke/ainvoke/stream/astream/astream_events 五个方法）；6 个 agent 全部改用工厂。
+| 编号 | 主题 | 问题 | 改造 |
+|------|------|------|------|
+| P2-9 | pytest 单元测试 | - | 新增 [test_unit.py](agent/tests/test_unit.py)，覆盖 Prompt/可观测性降级/MCP/安全/流式策略/评估与检索重排 |
+| P2-10 | LLM 重试机制 | 直接 `ChatOpenAI()` 无重试，网络抖动即崩溃 | 新增 [llm_factory.py](agent/core/llm_factory.py)（tenacity 指数退避 + 可重试异常过滤，包装 invoke/ainvoke/stream/astream/astream_events）；6 个 agent 全部改用工厂 |
 
 ### P3 - 生产级安全认证体系（已完成）
 
-#### P3-11 后端 JWT 认证基础设施
-
-**问题**：`/api/chat` 与 `/api/history` 直接信任 body/query 里的 `user_id`，HTTP 层任意伪造可越权查询他人账单/历史。UserIdInjector 只能防 LLM Prompt 注入，防不了 HTTP 层伪造。
-
-**改造**：
-- 新增 [app/auth/](app/auth/__init__.py) 模块：
-  - [jwt_handler.py](app/auth/jwt_handler.py)：HS256 签发/验证，过期与无效分别抛 `TokenExpiredError` / `InvalidTokenError`
-  - [models.py](app/auth/models.py)：3 个 mock 用户（alice/bob/admin，密码 `cloud@2024`），bcrypt hash
-  - [dependency.py](app/auth/dependency.py)：FastAPI Depends 从 Authorization header 解析 user_id，并对 user_id 二次校验存在性
-- 严格模式：未携 token / 过期 / 篡改 / 用户已删除 一律 401，并返回 `WWW-Authenticate: Bearer` 响应头
-
-#### P3-12 接入 auth 路由 + 修改现有路由
-
-**改造**：
-- 新增 [app/router/auth.py](app/router/auth.py)：`POST /api/auth/login`（用户名+密码 → JWT）+ `GET /api/auth/me`（带 token 拉用户信息）
-- [chat.py](app/router/chat.py) 与 [history.py](app/router/history.py) 改用 `Depends(get_current_user_id)`，user_id 强制来自 JWT
-- [schemas/chat.py](app/schemas/chat.py) 移除 `user_id` 字段，即便 body 塞了也会被 Pydantic 忽略
-- 登录失败统一返回 401（不区分用户名错误/密码错误，防止用户名枚举）
-
-#### P3-13 CORS 收紧 + 配置化
-
-**问题**：[app_main.py](app/app_main.py) 原 CORS 配置 `allow_origins=["*"]` + `allow_credentials=True` 是 CORS 规范的反模式，浏览器会忽略 credentials。
-
-**改造**：
-- CORS 来源从 .env 读取（`CORS_ORIGINS`，逗号分隔），settings.py 加 validator 拒绝 `'*'`
-- `allow_methods` / `allow_headers` 显式枚举，包含 `Authorization` header
-- settings 加载失败时降级到只允许本地开发端口
-
-#### P3-14 settings.py 与 .env 增加 JWT/CORS 配置项
-
-**改造**：[settings.py](agent/config/settings.py) 加 4 个字段 + 2 个 validator：
-- `jwt_secret`（必填，≥16 字符）、`jwt_algorithm`（默认 HS256）、`jwt_expire_hours`（默认 24）
-- `cors_origins`（必填，拒绝 `'*'`）
-- [.env.example](agent/.env.example) 补充默认配置项
-
-#### P3-15 补充 JWT/越权访问单元测试
-
-**改造**：[test_unit.py](agent/tests/test_unit.py) 新增 JWT 与越权访问测试：
-- `TestJWTHandler`：签发/解码/篡改检测/claim 完整性
-- `TestMockUserDB`：登录成功/密码错误/未知用户/按 ID 查询
-- `TestAuthDependency`：缺 header/格式错误/无效 token/有效 token/用户已删除
-- `TestAuthRouterE2E`：用 FastAPI TestClient 端到端测试 login + me + 401 场景
-
-#### P3-16 前端接入 JWT
-
-**问题**：[App.vue](front/cloud_agent/src/App.vue) 3 处硬编码 `user_1001`，任何人打开页面都是同一个身份。
-
-**改造**：
-- 新增登录弹窗（用户名+密码），调用 `/api/auth/login` 拿 token
-- token 与 currentUser 持久化到 localStorage（`cloud_agent_token` / `cloud_agent_user`）
-- 所有 `/api/chat` / `/api/history` 请求自动加 `Authorization: Bearer <token>` header
-- 移除 3 处硬编码 `user_1001`，用户名/头像首字母从 `currentUser` 动态渲染
-- 401 自动清空 token + 弹登录窗 + ElMessage 提示
-- onMounted 校验 token 有效性（调 `/api/auth/me`），失效自动弹登录
-- 新增「退出」按钮，清空 localStorage 与消息列表
+| 编号 | 主题 | 问题 | 改造 |
+|------|------|------|------|
+| P3-11 | JWT 后端基础设施 | HTTP 层 user_id 可伪造越权，UserIdInjector 防不了 HTTP 伪造 | 新增 [app/auth/](app/auth/__init__.py)：[jwt_handler.py](app/auth/jwt_handler.py)（HS256）+ [models.py](app/auth/models.py)（3 个 mock 用户 bcrypt）+ [dependency.py](app/auth/dependency.py)（Depends 解析 + 二次校验存在性）；严格模式一律 401 |
+| P3-12 | 接入 auth 路由 | - | 新增 [auth.py](app/router/auth.py)（login + me）；chat/history 改用 `Depends(get_current_user_id)`；[schemas/chat.py](app/schemas/chat.py) 移除 user_id；登录失败统一 401 防枚举 |
+| P3-13 | CORS 收紧 | `allow_origins=["*"]` + credentials 是规范反模式 | 来源从 .env 读取 + validator 拒绝 `'*'`；显式枚举 methods/headers 含 `Authorization`；加载失败降级本地端口 |
+| P3-14 | 配置层补全 | - | [settings.py](agent/config/settings.py) 加 `jwt_secret`(≥16 字符)/`jwt_algorithm`/`jwt_expire_hours`/`cors_origins` 字段及 validator；[.env.example](agent/.env.example) 补充默认项 |
+| P3-15 | JWT/越权单元测试 | - | [test_unit.py](agent/tests/test_unit.py) 新增 TestJWTHandler/TestMockUserDB/TestAuthDependency/TestAuthRouterE2E 四组测试 |
+| P3-16 | 前端接入 JWT | [App.vue](front/cloud_agent/src/App.vue) 硬编码 `user_1001` 同一身份 | 新增登录弹窗 + localStorage 持久化；请求自动加 Bearer header；401 自动清空弹窗；onMounted 校验 token；新增退出按钮 |
 
 ---
 
